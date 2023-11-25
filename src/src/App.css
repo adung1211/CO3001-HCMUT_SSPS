@@ -1,0 +1,349 @@
+.homepage-SV {
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.homepage-SV .overlap-wrapper {
+  height: 1024px;
+  width: 1442px;
+}
+
+.homepage-SV .overlap {
+  height: 1024px;
+  position: relative;
+}
+
+.homepage-SV .backrground {
+  background-color: #f4f8ff;
+  height: 1024px;
+  left: 2px;
+  position: absolute;
+  top: 0;
+  width: 1440px;
+}
+
+.homepage-SV .backgorund {
+  height: 669px;
+  left: 817px;
+  position: absolute;
+  top: 257px;
+  width: 550px;
+}
+
+.homepage-SV .anh-BK {
+  height: 684px;
+  left: 850px;
+  object-fit: cover;
+  position: absolute;
+  top: 210px;
+  width: 538px;
+}
+
+.homepage-SV .gioi-thieu {
+  height: 514px;
+  left: 72px;
+  position: absolute;
+  top: 276px;
+  width: 735px;
+}
+
+.homepage-SV .he-thong-in-thong {
+  color: #969aa0;
+  font-family: "Be Vietnam Pro-Bold", Helvetica;
+  font-size: 36px;
+  font-weight: 700;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 250px;
+  width: 648px;
+}
+
+.homepage-SV .overlap-group {
+  height: 249px;
+  left: -1px;
+  position: absolute;
+  top: -1px;
+  width: 729px;
+}
+
+.homepage-SV .HCMUT-SMART-PRINTING {
+  -webkit-text-stroke: 1px #1b3764;
+  color: #1b3764;
+  font-family: "Akaya Telivigala-Regular", Helvetica;
+  font-size: 74px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 1.48px;
+  line-height: 92.5px;
+  position: absolute;
+  top: 0;
+  width: 729px;
+}
+
+.homepage-SV .line {
+  height: 3px;
+  left: 27px;
+  position: absolute;
+  top: 212px;
+  width: 125px;
+}
+
+.homepage-SV .mo-hinh-he-thong-in {
+  color: #969aa0;
+  font-family: "Be Vietnam Pro-Bold", Helvetica;
+  font-size: 24px;
+  font-weight: 700;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: justify;
+  top: 406px;
+  width: 655px;
+}
+
+.homepage-SV .numbers {
+  align-items: center;
+  display: flex;
+  gap: 32px;
+  left: 72px;
+  position: absolute;
+  top: 789px;
+  width: 568px;
+}
+
+.homepage-SV .co-so {
+  height: 97px;
+  position: relative;
+  width: 60px;
+}
+
+.homepage-SV .text-wrapper {
+  color: #969aa0;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: -0.18px;
+  line-height: 30.6px;
+  position: absolute;
+  top: 66px;
+  white-space: nowrap;
+}
+
+.homepage-SV .div {
+  color: #1b3764;
+  font-family: "Cardo-Bold", Helvetica;
+  font-size: 55px;
+  font-weight: 700;
+  left: 0;
+  letter-spacing: -1.1px;
+  line-height: 66px;
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+}
+
+.homepage-SV .may-in {
+  height: 97px;
+  position: relative;
+  width: 154px;
+}
+
+.homepage-SV .text-wrapper-2 {
+  color: #969aa0;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  left: 36px;
+  letter-spacing: -0.18px;
+  line-height: 30.6px;
+  position: absolute;
+  top: 66px;
+  white-space: nowrap;
+}
+
+.homepage-SV .text-wrapper-3 {
+  color: #1b3764;
+  font-family: "Cardo-Bold", Helvetica;
+  font-size: 55px;
+  font-weight: 700;
+  left: 36px;
+  letter-spacing: -1.1px;
+  line-height: 66px;
+  position: absolute;
+  top: 0;
+  width: 114px;
+}
+
+.homepage-SV .sep {
+  height: 88px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 4px;
+  width: 1px;
+}
+
+.homepage-SV .sinh-vien {
+  height: 97px;
+  position: relative;
+  width: 195px;
+}
+
+.homepage-SV .text-wrapper-4 {
+  color: #969aa0;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  left: 35px;
+  letter-spacing: -0.18px;
+  line-height: 30.6px;
+  position: absolute;
+  top: 66px;
+  white-space: nowrap;
+}
+
+.homepage-SV .text-wrapper-5 {
+  color: #1b3764;
+  font-family: "Cardo-Bold", Helvetica;
+  font-size: 55px;
+  font-weight: 700;
+  left: 35px;
+  letter-spacing: -1.1px;
+  line-height: 66px;
+  position: absolute;
+  top: 0;
+  width: 156px;
+}
+
+.homepage-SV .heading {
+  background-color: #1b3764;
+  box-shadow: 0px 4px 4px #00000040;
+  height: 109px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1440px;
+}
+
+.homepage-SV .navbar {
+  height: 30px;
+  left: 163px;
+  position: absolute;
+  top: 42px;
+  width: 528px;
+}
+
+.homepage-SV .text-wrapper-6 {
+  color: #ffffff;
+  font-family: "Be Vietnam Pro-Bold", Helvetica;
+  font-size: 24px;
+  font-weight: 700;
+  left: 434px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+}
+
+.homepage-SV .text-wrapper-7 {
+  color: #ffffff;
+  font-family: "Be Vietnam Pro-Bold", Helvetica;
+  font-size: 24px;
+  font-weight: 700;
+  left: 250px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+}
+
+.homepage-SV .text-wrapper-8 {
+  color: #ffffff;
+  font-family: "Be Vietnam Pro-Bold", Helvetica;
+  font-size: 24px;
+  font-weight: 700;
+  left: 172px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+}
+
+.homepage-SV .text-wrapper-9 {
+  color: #ffffff;
+  font-family: "Be Vietnam Pro-Bold", Helvetica;
+  font-size: 24px;
+  font-weight: 700;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+}
+
+.homepage-SV .user-icon {
+  height: 44px;
+  left: 1144px;
+  position: absolute;
+  top: 34px;
+  width: 252px;
+}
+
+.homepage-SV .search-icon {
+  height: 30px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 7px;
+  width: 30px;
+}
+
+.homepage-SV .customer-support {
+  height: 30px;
+  left: 116px;
+  object-fit: cover;
+  position: absolute;
+  top: 7px;
+  width: 32px;
+}
+
+.homepage-SV .bell {
+  height: 30px;
+  left: 58px;
+  object-fit: cover;
+  position: absolute;
+  top: 8px;
+  width: 30px;
+}
+
+.homepage-SV .img {
+  height: 44px;
+  left: 176px;
+  position: absolute;
+  top: 0;
+  width: 49px;
+}
+
+.homepage-SV .expand-arrow {
+  height: 30px;
+  left: 225px;
+  position: absolute;
+  top: 8px;
+  width: 27px;
+}
+
+.homepage-SV .logobk {
+  height: 83px;
+  left: 33px;
+  object-fit: cover;
+  position: absolute;
+  top: 8px;
+  width: 77px;
+}
