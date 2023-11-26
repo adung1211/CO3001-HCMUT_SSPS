@@ -1,0 +1,102 @@
+.login {
+    background-color: #f4f8ff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.login .overlap-group-wrapper {
+    background-color: #f4f8ff;
+    border: 1px solid;
+    border-color: #032b91;
+    height: 1024px;
+    width: 1440px;
+}
+
+.login .overlap-group {
+    background-color: #f4f8ff;
+    height: 1024px;
+    position: relative;
+}
+
+.login .rectangle {
+    background-color: #ffffff;
+    border: 1px solid;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px #00000040;
+    height: 855px;
+    left: 363px;
+    position: absolute;
+    top: 88px;
+    width: 707px;
+}
+
+.login .logobk {
+    height: 259px;
+    left: 575px;
+    object-fit: cover;
+    position: absolute;
+    top: 131px;
+    width: 290px;
+}
+
+.login .text-wrapper {
+    color: #1b3764;
+    font-family: "Be Vietnam Pro-Bold", Helvetica;
+    font-size: 48px;
+    font-weight: 700;
+    left: 589px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 488px;
+}
+
+.login .line {
+    height: 3px;
+    left: 471px;
+    position: absolute;
+    top: 436px;
+    width: 491px;
+}
+
+.login .img {
+    height: 73px;
+    left: 472px;
+    position: absolute;
+    top: 603px;
+    width: 491px;
+}
+
+.login .rectangle-2 {
+    height: 73px;
+    left: 475px;
+    position: absolute;
+    top: 729px;
+    width: 491px;
+}
+
+.login .div {
+    color: #1b3764;
+    font-family: "Be Vietnam Pro-Bold", Helvetica;
+    font-size: 24px;
+    font-weight: 700;
+    left: 553px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 624px;
+}
+
+.login .p {
+    color: #1b3764;
+    font-family: "Be Vietnam Pro-Bold", Helvetica;
+    font-size: 24px;
+    font-weight: 700;
+    left: 558px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 750px;
+}
