@@ -5,7 +5,6 @@ function App() {
     <div className="homepage-SV">
       <div className="overlap-wrapper">
         <div className="overlap">
-          <div className="backrground" />
           <img className="backgorund" alt="Backgorund" src="https://i.imgur.com/UTt5OAH.png" />
           <img className="anh-BK" alt="Anh BK" src="https://i.imgur.com/pRywQZ3.png" />
           <div className="gioi-thieu">
