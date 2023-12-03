@@ -1,14 +1,22 @@
 import "../style/Upload.css";
 import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 export const Properties = () => {
     const location = useLocation();
     const selectedFileName = location.state?.selectedFileName;
+    const navigate = useNavigate();
     function changeContent(newContent) {
         console.log(newContent);
         document.getElementById('selectedSize').innerText = newContent;
     }
+    const handleContinue = () => {
+        navigate("/");
+      };
+    const handleCancel = () => {
+    navigate("/Upload");
+    };
     return (
         <div className="homepage-SV">
             <div className="overlap-wrapper">
@@ -57,6 +65,12 @@ export const Properties = () => {
                                 </div>
                             </div>
                         </div>
+                        <button className="continue-button" onClick={handleContinue}>
+                        Xác nhận
+                        </button>
+                        <button className="cancel-button" onClick={handleCancel}>
+                        Hủy
+                        </button>
                     </div>
                     <div className="heading">
                         <div className="navbar">
