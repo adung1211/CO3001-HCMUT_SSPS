@@ -20,19 +20,16 @@ export const Upload = () => {
                     <div className="overlap1">
                     <div className="rectangle" />
                       <p className="text-wrapper10">Hoặc kéo thả tệp ở đây</p>
-                        <div className="overlap-group" onClick={openFileInput}>
-                          <div className="div">
-                            <div className="text-wrapper11">Chọn tệp</div>
-                          </div>
-                          <img className="image" alt="Image" src="https://i.imgur.com/TJjadhH.png" />
-                          
+                      <div className="overlap-group" onClick={openFileInput}>
+                        <div className="text-wrapper11">Chọn tệp</div>
+                        <img className="image" alt="Image" src="https://i.imgur.com/TJjadhH.png" />
                         <input
-                              type="file"
-                              ref={fileInputRef}
-                              style={{ display: 'none' }}
-                              onChange={handleFileSelect}
-                            />
-                        </div>
+                          type="file"
+                          ref={fileInputRef}
+                          style={{ display: 'none' }}
+                          onChange={handleFileSelect}
+                        />
+                      </div>
                       <img className="upload-file" alt="Upload file" src="https://i.imgur.com/JJMrZvq.png" />
                     </div>
                     <p className="p">Tải tài liệu lên để in</p>
