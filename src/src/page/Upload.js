@@ -2,17 +2,37 @@ import "../style/Upload.css";
 import React, { useRef, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
+
 export const Upload = () => {
   const fileInputRef = useRef(null);
   const [selectedFileName, setSelectedFileName] = useState("");
   const [showContinueButton, setShowContinueButton] = useState(false);
   const navigate = useNavigate();
 
-  const handleFileSelect = () => {
-    const selectedFile = fileInputRef.current.files[0];
+  const handleFileSelect = (file) => {
+    console.log("Selected File Name:", file.name);
+    setSelectedFileName(file.name);
+    setShowContinueButton(true);
+  };
+
+  const handleFileDrag = (event) => {
+    event.preventDefault();
+    console.log("File drag");
+  };
+
+  const handleFileDrop = (event) => {
+    event.preventDefault();
+    const droppedFiles = event.dataTransfer.files;
+    const droppedFile = droppedFiles[0];
+    if (droppedFile) {
+      handleFileSelect(droppedFile);
+    }
+  };
+
+  const handleFileInputChange = (event) => {
+    const selectedFile = event.target.files[0];
     if (selectedFile) {
-      setSelectedFileName(selectedFile.name);
-      setShowContinueButton(true);
+      handleFileSelect(selectedFile);
     }
   };
 
@@ -28,7 +48,7 @@ export const Upload = () => {
                 <div className="overlap">
                   <div className="frame">
                     <div className="overlap1">
-                    <div className="rectangle" />
+                    <div className="rectangle" onDrop={handleFileDrop} onDragOver={handleFileDrag}/>
                       <p className="text-wrapper10">Hoặc kéo thả tệp ở đây</p>
                       <button className="overlap-group" onClick={openFileInput}>
                         Chọn tệp
@@ -36,7 +56,7 @@ export const Upload = () => {
                           type="file"
                           ref={fileInputRef}
                           style={{ display: "none" }}
-                          onChange={handleFileSelect}
+                          onChange={handleFileInputChange}
                         />
                       </button>
                       {selectedFileName && (
