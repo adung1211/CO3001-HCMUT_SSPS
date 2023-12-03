@@ -1,5 +1,5 @@
 import './StudentHomepage.css';
-
+import { Link } from "react-router-dom";
 function StudentHomepage() {
     return (
         <div className="homepage-SV">
@@ -44,7 +44,9 @@ function StudentHomepage() {
                         <div className="navbar">
                             <div className="text-wrapper-6">Lịch sử</div>
                             <div className="text-wrapper-7">Mua Trang</div>
-                            <div className="text-wrapper-8">In</div>
+                            <div className="text-wrapper-8">
+                                <Link to="/Upload">In</Link>
+                            </div>
                             <div className="text-wrapper-9">Trang chủ</div>
                         </div>
                         <div className="user-icon">
