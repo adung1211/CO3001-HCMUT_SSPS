@@ -1,16 +1,18 @@
 import "../style/Upload.css";
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 export const Upload = () => {
   const fileInputRef = useRef(null);
   const [selectedFileName, setSelectedFileName] = useState("");
   const [showContinueButton, setShowContinueButton] = useState(false);
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const handleFileSelect = () => {
     const selectedFile = fileInputRef.current.files[0];
     if (selectedFile) {
       setSelectedFileName(selectedFile.name);
+      setShowContinueButton(true);
     }
   };
 
@@ -18,7 +20,7 @@ export const Upload = () => {
     fileInputRef.current.click();
   };
   const handleContinue = () => {
-    history.push("/next-page");
+    navigate("/");
   };
   return (
     <div className="homepage-SV">
@@ -28,16 +30,15 @@ export const Upload = () => {
                     <div className="overlap1">
                     <div className="rectangle" />
                       <p className="text-wrapper10">Hoặc kéo thả tệp ở đây</p>
-                      <div className="overlap-group" onClick={openFileInput}>
-                        <div className="text-wrapper11">Chọn tệp</div>
-                        <img className="image" alt="Image" src="https://i.imgur.com/TJjadhH.png" />
+                      <button className="overlap-group" onClick={openFileInput}>
+                        Chọn tệp
                         <input
                           type="file"
                           ref={fileInputRef}
-                          style={{ display: 'none' }}
+                          style={{ display: "none" }}
                           onChange={handleFileSelect}
                         />
-                      </div>
+                      </button>
                       {selectedFileName && (
                         <div className="selected-file">Selected File: {selectedFileName}</div>
                       )}

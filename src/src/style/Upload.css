@@ -396,14 +396,39 @@
 }
 
 .frame .overlap-group {
-  background-color: #ffffff;
-  border: 1px solid #000000;
-  border-radius: 20px;
-  height: 43px;
+  height: 33px;
   width: 175px;
+  background-color: #e2e2e2;
+  border-color: #000000;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
   position: relative;
   left: 543px;
   top: 176px;
+}
+.frame .overlap-group:hover {
+  background-color: #aeaeae;
+  cursor: pointer;
+}
+
+.frame .continue-button {
+  height: 33px;
+  width: 175px;
+  background-color: #e2e2e2;
+  color: #000000;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  left: 368px;
+  top: 216px;
+}
+.frame .continue-button:hover {
+  background-color: #aeaeae;
+  cursor: pointer;
 }
 
 .frame .div {
@@ -414,13 +439,9 @@
   width: 75px;
 }
 
-.frame .overlap-group:hover {
-  background-color: #f0f0f0;
-  cursor: pointer;
-}
 
 .frame .text-wrapper11 {
-  color: #000000;
+  color: #ffffffff;
   font-family: "Be Vietnam Pro-Regular", Helvetica;
   font-size: 16px;
   font-weight: 700;
