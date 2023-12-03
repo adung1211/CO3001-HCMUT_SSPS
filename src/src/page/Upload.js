@@ -1,6 +1,5 @@
-import "./Upload.css";
-import React, { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import "../style/Upload.css";
+import React, { useRef } from 'react';
 
 export const Upload = () => {
   const fileInputRef = useRef(null);

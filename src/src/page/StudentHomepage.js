@@ -1,4 +1,4 @@
-import './StudentHomepage.css';
+import '../style/StudentHomepage.css';
 import { Link } from "react-router-dom";
 function StudentHomepage() {
     return (
