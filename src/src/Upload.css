@@ -8,7 +8,7 @@
 
 .homepage-SV .overlap-wrapper {
   height: 1024px;
-  width: 1442px;
+  width: 1440px;
 }
 
 .homepage-SV .overlap {
@@ -397,12 +397,11 @@
 
 .frame .overlap-group {
   background-color: #ffffff;
-  border: 1px solid;
-  border-color: #000000;
+  border: 1px solid #000000;
   border-radius: 20px;
   height: 43px;
-  position: relative;
   width: 175px;
+  position: relative;
   left: 543px;
   top: 176px;
 }
@@ -416,6 +415,7 @@
 }
 
 .frame .overlap-group:hover {
+  background-color: #f0f0f0;
   cursor: pointer;
 }
 
@@ -458,6 +458,19 @@
   width: 26px;
 }
 
+.frame .selected-file {
+  color: #1b3764;
+  font-family: "Be Vietnam Pro-Bold", Helvetica;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: normal;
+  position: absolute;
+}
+
 .frame .text-wrapper10 {
   color: #1b3764;
   font-family: "Be Vietnam Pro-Bold", Helvetica;
@@ -467,6 +480,7 @@
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
+  text-align: center;
   top: 241px;
 }
 

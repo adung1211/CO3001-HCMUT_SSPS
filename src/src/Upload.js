@@ -1,16 +1,25 @@
 import "./Upload.css";
-import React, { useRef } from 'react';
+import React, { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Upload = () => {
   const fileInputRef = useRef(null);
+  const [selectedFileName, setSelectedFileName] = useState("");
+  const [showContinueButton, setShowContinueButton] = useState(false);
+  const history = useNavigate();
 
   const handleFileSelect = () => {
     const selectedFile = fileInputRef.current.files[0];
-    console.log('Selected file:', selectedFile);
+    if (selectedFile) {
+      setSelectedFileName(selectedFile.name);
+    }
   };
 
   const openFileInput = () => {
     fileInputRef.current.click();
+  };
+  const handleContinue = () => {
+    history.push("/next-page");
   };
   return (
     <div className="homepage-SV">
@@ -30,6 +39,14 @@ export const Upload = () => {
                           onChange={handleFileSelect}
                         />
                       </div>
+                      {selectedFileName && (
+                        <div className="selected-file">Selected File: {selectedFileName}</div>
+                      )}
+                      {showContinueButton && (
+                        <button className="continue-button" onClick={handleContinue}>
+                          Continue
+                        </button>
+                      )}
                       <img className="upload-file" alt="Upload file" src="https://i.imgur.com/JJMrZvq.png" />
                     </div>
                     <p className="p">Tải tài liệu lên để in</p>
