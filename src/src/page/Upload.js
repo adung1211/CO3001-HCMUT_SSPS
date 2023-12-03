@@ -1,4 +1,4 @@
-import "./Upload.css";
+import "../style/Upload.css";
 import React, { useRef } from 'react';
 
 export const Upload = () => {

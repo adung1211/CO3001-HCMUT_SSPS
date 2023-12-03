@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom"
-import StudentHomepage from "./StudentHomepage"
-import Login from "./Login"
-import Upload from "./Upload"
+import StudentHomepage from "./page/StudentHomepage"
+import Login from "./page/Login"
+import Upload from "./page/Upload"
 
 function App() {
   return (
