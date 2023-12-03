@@ -1,6 +1,17 @@
 import "./Upload.css";
+import React, { useRef } from 'react';
 
 export const Upload = () => {
+  const fileInputRef = useRef(null);
+
+  const handleFileSelect = () => {
+    const selectedFile = fileInputRef.current.files[0];
+    console.log('Selected file:', selectedFile);
+  };
+
+  const openFileInput = () => {
+    fileInputRef.current.click();
+  };
   return (
     <div className="homepage-SV">
             <div className="overlap-wrapper">
@@ -9,16 +20,19 @@ export const Upload = () => {
                     <div className="overlap1">
                     <div className="rectangle" />
                       <p className="text-wrapper10">Hoặc kéo thả tệp ở đây</p>
-                      <div className="group">
-                        <div className="overlap-group">
+                        <div className="overlap-group" onClick={openFileInput}>
                           <div className="div">
                             <div className="text-wrapper11">Chọn tệp</div>
-                            <img className="down-svgrepo" alt="Down svgrepo" src="https://i.imgur.com/6HqhQky.png" />
-                            <div className="line"/>
                           </div>
                           <img className="image" alt="Image" src="https://i.imgur.com/TJjadhH.png" />
+                          
+                        <input
+                              type="file"
+                              ref={fileInputRef}
+                              style={{ display: 'none' }}
+                              onChange={handleFileSelect}
+                            />
                         </div>
-                      </div>
                       <img className="upload-file" alt="Upload file" src="https://i.imgur.com/JJMrZvq.png" />
                     </div>
                     <p className="p">Tải tài liệu lên để in</p>

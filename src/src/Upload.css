@@ -400,9 +400,11 @@
   border: 1px solid;
   border-color: #000000;
   border-radius: 20px;
-  height: 61px;
+  height: 43px;
   position: relative;
-  width: 200px;
+  width: 175px;
+  left: 543px;
+  top: 176px;
 }
 
 .frame .div {
@@ -410,21 +412,25 @@
   left: 65px;
   position: absolute;
   top: 0;
-  width: 125px;
+  width: 75px;
+}
+
+.frame .overlap-group:hover {
+  cursor: pointer;
 }
 
 .frame .text-wrapper11 {
-  -webkit-text-stroke: 1px #000000;
-  color: #585c66;
+  color: #000000;
   font-family: "Be Vietnam Pro-Regular", Helvetica;
-  font-size: 13px;
-  font-weight: 400;
-  left: 0;
+  font-size: 16px;
+  font-weight: 700;
+  left: -2px;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 23px;
-  width: 113px;
+  top: 13px;
+  white-space: nowrap;
+  width: 76px;
 }
 
 .frame .down-svgrepo {
@@ -445,10 +451,10 @@
 
 .frame .image {
   height: 26px;
-  left: 31px;
+  left: 28px;
   object-fit: cover;
   position: absolute;
-  top: 15px;
+  top: 7px;
   width: 26px;
 }
 
@@ -477,7 +483,7 @@
   font-family: "Be Vietnam Pro-Regular", Helvetica;
   font-size: 48px;
   font-weight: 400;
-  left: 388px;
+  left: 407px;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
