@@ -37,10 +37,12 @@ export default function MenuBar() {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseUserMenu = () => {
+  const handleCloseUserMenu = (event) => {
     setAnchorElUser(null);
-    logOut();
-    navigate("/home");
+    if (event === "Logout") {
+      logOut();
+      navigate("/home");
+    }
   };
 
   return (
@@ -129,7 +131,10 @@ export default function MenuBar() {
                   onClose={handleCloseUserMenu}
                 >
                   {settings.map((setting) => (
-                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                    <MenuItem
+                      key={setting}
+                      onClick={() => handleCloseUserMenu(setting.text)}
+                    >
                       <Typography textAlign="center">{setting.text}</Typography>
                     </MenuItem>
                   ))}
