@@ -15,6 +15,9 @@ import FormControl from '@mui/material/FormControl';
 import NativeSelect from '@mui/material/NativeSelect';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormLabel from '@mui/material/FormLabel';
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import UploadFileIcon from '@mui/icons-material/UploadFile';
 import ArrowRightOutlinedIcon from '@mui/icons-material/ArrowRightOutlined';
@@ -33,6 +36,11 @@ const VisuallyHiddenInput = styled("input")({
 
 
 export default function Properties() {
+    const [value, setValue] = React.useState('In ngang');
+
+    const handleChange = (event) => {
+        setValue(event.target.value);
+      };
     const location = useLocation();
     const selectedFileName = location.state?.selectedFileName;
     const navigate = useNavigate();
@@ -95,7 +103,7 @@ export default function Properties() {
             position: 'absolute',
             top: 70,
             left: 1260,
-            bgcolor: '#BCBCBC',
+            bgcolor: '#BFD6E8',
             }}
         >
             <Typography 
@@ -104,17 +112,13 @@ export default function Properties() {
                     fontFamily: 'Inter-Regular, Helvetica',
                     fontSize: 26,
                     fontWeight: 460,
-                    top: '10%',
-                    left: '50%',
-                    transform: 'translate(-50%, -50%)',
                     letterSpacing: 0,
                     lineHeight: 'normal',
                     width: 'fit-content',
-                    position: 'absolute',
                   }}> 
                 {selectedFileName} 
             </Typography>
-            <Box sx={{ minWidth: 200 }}>
+            <Box sx={{ minWidth: 200, marginTop:4}}>
                 <FormControl fullWidth>
                 <Typography style={{ color: '#000000' }}>Cỡ giấy</Typography>
                     <NativeSelect
@@ -130,29 +134,47 @@ export default function Properties() {
             <FormControlLabel
                 control={<Checkbox id="doubleSidedPrinting" />}
                 label={<Typography style={{ color: '#000000' }}>In 2 mặt</Typography>}
-                sx={{ width: '200px', marginTop: 5}}
+                sx={{ width: '200px', marginTop: 3}}
             />
         </Box>
+            <TextField
+                label="Trang in"
+                helperText="VD: tất cả, chẵn, 1-14"
+                sx={{ width: '200px', marginTop: 3}}
+            />
             <TextField
                 label={<Typography style={{ color: '#000000' }}>Số bản sao</Typography>}
                 type="number"
                 inputProps={{ min: 1}}
                 defaultValue="1"
-                sx={{ width: '200px', marginTop: 5}}
+                sx={{ width: '200px', marginTop: 3}}
             />
             <TextField
                 label={<Typography style={{ color: '#000000' }}>Số trang trên mặt</Typography>}
                 type="number"
                 inputProps={{ min: 1, max: 8 }}
                 defaultValue="1"
-                sx={{ width: '200px', marginTop: 5}}
+                sx={{ width: '200px', marginTop: 3}}
             />
+            <FormControl sx={{ width: '200px', marginTop: 3}}>
+                <FormLabel id="demo-controlled-radio-buttons-group">Kiểu in</FormLabel>
+                <RadioGroup
+                    aria-labelledby="demo-controlled-radio-buttons-group"
+                    name="controlled-radio-buttons-group"
+                    value={value}
+                    onChange={handleChange}
+                >
+                    <FormControlLabel value="In ngang" control={<Radio />} label="In ngang" />
+                    <FormControlLabel value="In dọc" control={<Radio />} label="In dọc" />
+                </RadioGroup>
+            </FormControl>
+           
             <Button
             variant="contained"
             className="continue-button"
             onClick={handleContinue}
             color="info" 
-            sx={{width: '150px', height: '50px', marginTop: 5}}
+            sx={{width: '150px', height: '50px', marginTop: 3}}
             >
             Xác nhận
             </Button>
