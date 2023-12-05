@@ -62,6 +62,9 @@ export default function MenuBar() {
                   color: "white",
                   display: "block",
                   fontSize: "14px",
+                  "&:hover": {
+                    opacity: 0.5,
+                  },
                 }}
                 onClick={() => handleNav(page.href)}
               >
