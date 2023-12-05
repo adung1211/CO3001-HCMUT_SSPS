@@ -12,6 +12,8 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "./UserContext";
+import { useContext } from "react";
 
 const pages = [
   { text: "Trang chủ", href: "/home" },
@@ -25,6 +27,8 @@ export default function MenuBar() {
   const navigate = useNavigate();
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
+  const { state, logOut } = useContext(UserContext);
+
   const handleNav = (pagelink) => {
     navigate(pagelink);
   };
@@ -33,8 +37,9 @@ export default function MenuBar() {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseUserMenu = (pagelink) => {
+  const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+    logOut();
   };
 
   return (
@@ -53,48 +58,84 @@ export default function MenuBar() {
               }
             />
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
+          {state.log === "none" && (
+            <>
+              <Box
                 sx={{
-                  my: 2,
-                  color: "white",
-                  display: "block",
-                  fontSize: "14px",
-                  "&:hover": {
-                    opacity: 0.5,
-                  },
+                  flexGrow: 1,
+                  display: "flex",
+                  flexDirection: "column",
                 }}
-                onClick={() => handleNav(page.href)}
               >
-                {page.text}
-              </Button>
-            ))}
-          </Box>
-          <Box sx={{ flexGrow: 0, pr: 5 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ pr: 0 }}>
-                <Avatar
-                  alt="Remy Sharp"
-                  src="https://i.imgur.com/QOwoGb5.jpg"
-                />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              keepMounted
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={() => handleNav(setting.href)}>
-                  <Typography textAlign="center">{setting.text}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+                <Typography sx={{ fontWeight: "bold" }}>
+                  Trường Đại học Bách Khoa - ĐHQG TP.HCM
+                </Typography>
+                <Typography>Student Smart Printing Service</Typography>
+              </Box>
+              <Box sx={{ flexGrow: 0, pr: 5 }}>
+                <Button
+                  sx={{
+                    my: 2,
+                    color: "white",
+                    display: "block",
+                    fontSize: "14px",
+                    "&:hover": {
+                      opacity: 0.5,
+                    },
+                  }}
+                  onClick={() => handleNav("/login")}
+                >
+                  Đăng nhập
+                </Button>
+              </Box>
+            </>
+          )}
+          {state.log === "student" && (
+            <>
+              <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+                {pages.map((page) => (
+                  <Button
+                    key={page}
+                    sx={{
+                      my: 2,
+                      color: "white",
+                      display: "block",
+                      fontSize: "14px",
+                      "&:hover": {
+                        opacity: 0.5,
+                      },
+                    }}
+                    onClick={() => handleNav(page.href)}
+                  >
+                    {page.text}
+                  </Button>
+                ))}
+              </Box>
+              <Box sx={{ flexGrow: 0, pr: 5 }}>
+                <Tooltip title="Open settings">
+                  <IconButton onClick={handleOpenUserMenu} sx={{ pr: 0 }}>
+                    <Avatar
+                      alt="Remy Sharp"
+                      src="https://i.imgur.com/QOwoGb5.jpg"
+                    />
+                  </IconButton>
+                </Tooltip>
+                <Menu
+                  id="menu-appbar"
+                  anchorEl={anchorElUser}
+                  keepMounted
+                  open={Boolean(anchorElUser)}
+                  onClose={handleCloseUserMenu}
+                >
+                  {settings.map((setting) => (
+                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                      <Typography textAlign="center">{setting.text}</Typography>
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </Box>
+            </>
+          )}
         </Toolbar>
       </Container>
     </AppBar>

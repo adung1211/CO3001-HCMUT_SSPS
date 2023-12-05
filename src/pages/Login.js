@@ -4,8 +4,13 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 
+import { UserContext } from "../components/UserContext";
+import { useContext } from "react";
+
 export default function Login() {
   const navigate = useNavigate();
+  const { logAsStudent } = useContext(UserContext);
+
   return (
     <Box
       display="flex"
@@ -57,7 +62,10 @@ export default function Login() {
             fontSize: "18px",
             fontWeight: "bold",
           }}
-          onClick={() => navigate("/home")}
+          onClick={() => {
+            logAsStudent();
+            navigate("/home");
+          }}
         >
           Đăng nhập dành cho sinh viên
         </Button>
