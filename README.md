@@ -1,5 +1,5 @@
 # Link to Project Web
-This project was deployed on [https://noi-nay-co-anh.onrender.com](https://noi-nay-co-anh.onrender.com)
+This project was deployed on [https://adung1211.github.io/co3001-hcmut_ssps/](https://adung1211.github.io/co3001-hcmut_ssps/)
 
 # Getting Started with Create React App
 
