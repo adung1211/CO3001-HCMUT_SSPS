@@ -14,7 +14,7 @@ function Login() {
                     <img className="img" alt="Rectangle" src="https://i.imgur.com/Kew377l.png" />
                     <img className="rectangle-2" alt="Rectangle" src="https://i.imgur.com/Kew377l.png" />
                     <Link to="StudentHomePage" className="div">Đăng nhập dành cho sinh viên</Link>
-                    <p className="p">Đăng nhập dành cho cán bộ</p>
+                    <Link to="SPSOHomepage" className="p">Đăng nhập dành cho cán bộ </Link>
                 </div>
             </div>
         </div>

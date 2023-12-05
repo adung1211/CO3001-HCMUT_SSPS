@@ -1,0 +1,365 @@
+.homepage-SPSO {
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .homepage-SPSO .overlap-wrapper {
+    height: 1024px;
+    width: 1442px;
+  }
+  
+  .homepage-SPSO .overlap {
+    height: 1024px;
+    position: relative;
+  }
+  
+  .homepage-SPSO .backrground {
+    background-color: #f4f8ff;
+    height: 1024px;
+    left: 2px;
+    position: absolute;
+    top: 0;
+    width: 1440px;
+  }
+  
+  .homepage-SPSO .backgorund {
+    height: 669px;
+    left: 817px;
+    position: absolute;
+    top: 257px;
+    width: 550px;
+  }
+  
+  .homepage-SPSO .anh-BK {
+    height: 684px;
+    left: 850px;
+    object-fit: cover;
+    position: absolute;
+    top: 210px;
+    width: 538px;
+  }
+  
+  .homepage-SPSO .gioi-thieu {
+    height: 514px;
+    left: 72px;
+    position: absolute;
+    top: 276px;
+    width: 735px;
+  }
+  
+  .homepage-SPSO .he-thong-in-thong {
+    color: #969aa0;
+    font-family: "Be Vietnam Pro-Bold", Helvetica;
+    font-size: 36px;
+    font-weight: 700;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 250px;
+    width: 648px;
+  }
+  
+  .homepage-SPSO .overlap-group {
+    height: 249px;
+    left: -1px;
+    position: absolute;
+    top: -1px;
+    width: 729px;
+  }
+  
+  .homepage-SPSO .HCMUT-SMART-PRINTING {
+    -webkit-text-stroke: 1px #1b3764;
+    color: #1b3764;
+    font-family: "Akaya Telivigala-Regular", Helvetica;
+    font-size: 74px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 1.48px;
+    line-height: 92.5px;
+    position: absolute;
+    top: 0;
+    width: 729px;
+  }
+  
+  .homepage-SPSO .line {
+    height: 3px;
+    left: 27px;
+    position: absolute;
+    top: 212px;
+    width: 125px;
+  }
+  
+  .homepage-SPSO .mo-hinh-he-thong-in {
+    color: #969aa0;
+    font-family: "Be Vietnam Pro-Bold", Helvetica;
+    font-size: 24px;
+    font-weight: 700;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: justify;
+    top: 406px;
+    width: 655px;
+  }
+  
+  .homepage-SPSO .numbers {
+    align-items: center;
+    display: flex;
+    gap: 32px;
+    left: 72px;
+    position: absolute;
+    top: 789px;
+    width: 568px;
+  }
+  
+  .homepage-SPSO .co-so {
+    height: 97px;
+    position: relative;
+    width: 60px;
+  }
+  
+  .homepage-SPSO .text-wrapper {
+    color: #969aa0;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: -0.18px;
+    line-height: 30.6px;
+    position: absolute;
+    top: 66px;
+    white-space: nowrap;
+  }
+  
+  .homepage-SPSO .div {
+    color: #1b3764;
+    font-family: "Cardo-Bold", Helvetica;
+    font-size: 55px;
+    font-weight: 700;
+    left: 0;
+    letter-spacing: -1.1px;
+    line-height: 66px;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+  }
+  
+  .homepage-SPSO .may-in {
+    height: 97px;
+    position: relative;
+    width: 154px;
+  }
+  
+  .homepage-SPSO .text-wrapper-2 {
+    color: #969aa0;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    left: 36px;
+    letter-spacing: -0.18px;
+    line-height: 30.6px;
+    position: absolute;
+    top: 66px;
+    white-space: nowrap;
+  }
+  
+  .homepage-SPSO .text-wrapper-3 {
+    color: #1b3764;
+    font-family: "Cardo-Bold", Helvetica;
+    font-size: 55px;
+    font-weight: 700;
+    left: 36px;
+    letter-spacing: -1.1px;
+    line-height: 66px;
+    position: absolute;
+    top: 0;
+    width: 114px;
+  }
+  
+  .homepage-SPSO .sep {
+    height: 88px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 4px;
+    width: 1px;
+  }
+  
+  .homepage-SPSO .sinh-vien {
+    height: 97px;
+    position: relative;
+    width: 195px;
+  }
+  
+  .homepage-SPSO .text-wrapper-4 {
+    color: #969aa0;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    left: 35px;
+    letter-spacing: -0.18px;
+    line-height: 30.6px;
+    position: absolute;
+    top: 66px;
+    white-space: nowrap;
+  }
+  
+  .homepage-SPSO .text-wrapper-5 {
+    color: #1b3764;
+    font-family: "Cardo-Bold", Helvetica;
+    font-size: 55px;
+    font-weight: 700;
+    left: 35px;
+    letter-spacing: -1.1px;
+    line-height: 66px;
+    position: absolute;
+    top: 0;
+    width: 156px;
+  }
+  
+  .homepage-SPSO .heading {
+    background-color: #1b3764;
+    box-shadow: 0px 4px 4px #00000040;
+    height: 109px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 1440px;
+  }
+  
+  .homepage-SPSO .navbar {
+    height: 30px;
+    left: 163px;
+    position: absolute;
+    top: 42px;
+    width: 600px;
+  }
+  
+  .homepage-SPSO .text-wrapper-6 {
+    color: #ffffff;
+    font-family: "Be Vietnam Pro-Bold", Helvetica;
+    font-size: 24px;
+    font-weight: 700;
+    left: 434px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+  }
+  
+  .homepage-SPSO .text-wrapper-7 {
+    color: #ffffff;
+    font-family: "Be Vietnam Pro-Bold", Helvetica;
+    font-size: 24px;
+    font-weight: 700;
+    left: 400px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+  }
+  
+  .homepage-SPSO .text-wrapper-8 {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: "Be Vietnam Pro-Bold", Helvetica;
+    font-size: 24px;
+    font-weight: 700;
+    left: 172px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+  }
+  .homepage-SPSO .text-wrapper-8 a,
+  .homepage-SPSO .text-wrapper-8 a:link,
+  .homepage-SPSO .text-wrapper-8 a:visited {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  .homepage-SPSO .text-wrapper-8 a:hover {
+    color: #ffcc00; /* Change color on hover to your desired color */
+    /* Add any additional styles for the hover state */
+  }
+  
+  .homepage-SPSO .text-wrapper-8 a:active {
+    color: #ff9900; /* Change color on click to your desired color */
+    /* Add any additional styles for the active state */
+  }
+  
+  .homepage-SPSO .text-wrapper-9 {
+    color: #ffffff;
+    font-family: "Be Vietnam Pro-Bold", Helvetica;
+    font-size: 24px;
+    font-weight: 700;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+  }
+  
+  .homepage-SPSO .user-icon {
+    height: 44px;
+    left: 1144px;
+    position: absolute;
+    top: 34px;
+    width: 252px;
+  }
+  
+  .homepage-SPSO .search-icon {
+    height: 30px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 7px;
+    width: 30px;
+  }
+  
+  .homepage-SPSO .customer-support {
+    height: 30px;
+    left: 116px;
+    object-fit: cover;
+    position: absolute;
+    top: 7px;
+    width: 32px;
+  }
+  
+  .homepage-SPSO .bell {
+    height: 30px;
+    left: 58px;
+    object-fit: cover;
+    position: absolute;
+    top: 8px;
+    width: 30px;
+  }
+  
+  .homepage-SPSO .imguser {
+    height: 44px;
+    left: 176px;
+    position: absolute;
+    top: 0;
+    width: 49px;
+  }
+  
+  .homepage-SPSO .expand-arrow {
+    height: 30px;
+    left: 225px;
+    position: absolute;
+    top: 8px;
+    width: 27px;
+  }
+  
+  .homepage-SPSO .logobk {
+    height: 83px;
+    left: 33px;
+    object-fit: cover;
+    position: absolute;
+    top: 8px;
+    width: 77px;
+  }
