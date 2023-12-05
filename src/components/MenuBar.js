@@ -40,6 +40,7 @@ export default function MenuBar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
     logOut();
+    navigate("/home");
   };
 
   return (
