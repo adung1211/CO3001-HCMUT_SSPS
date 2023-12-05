@@ -59,7 +59,7 @@ function ResponsiveAppBar() {
         </Grid>
         <Grid item xs={5}>
           <img
-            alt="khung"
+            alt="Khung"
             src="https://i.imgur.com/UTt5OAH.png"
             style={{
               width: "500px",
