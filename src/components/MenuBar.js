@@ -21,7 +21,7 @@ const pages = [
   { text: "Mua trang", href: "/home" },
   { text: "Lịch sử", href: "/home" },
 ];
-const settings = [{ text: "Logout", href: "/login" }];
+const settings = [{ text: "Đăng xuất", href: "/login" }];
 
 export default function MenuBar() {
   const navigate = useNavigate();
@@ -39,7 +39,7 @@ export default function MenuBar() {
 
   const handleCloseUserMenu = (event) => {
     setAnchorElUser(null);
-    if (event === "Logout") {
+    if (event === "Đăng xuất") {
       logOut();
       navigate("/home");
     }
