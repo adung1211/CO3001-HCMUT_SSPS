@@ -22,7 +22,7 @@ function ResponsiveAppBar() {
             HCMUT <br /> SMART PRINTING
           </Typography>
           <img
-            alt="đặt đại"
+            alt="linh tinh"
             src="https://i.imgur.com/oBIHZkc.png"
             style={{
               marginLeft: "200px",
