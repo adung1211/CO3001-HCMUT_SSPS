@@ -56,11 +56,11 @@ export default function Login() {
         <Button
           sx={{
             mt: 5,
-            bgcolor: "#FFCA42",
+            bgcolor: "#FFD978",
             borderRadius: 10,
             color: "primary",
             fontSize: "18px",
-            fontWeight: "bold",
+            textTransform: "none",
           }}
           onClick={() => {
             logAsStudent();
@@ -72,11 +72,11 @@ export default function Login() {
         <Button
           sx={{
             mt: 5,
-            bgcolor: "#FFCA42",
+            bgcolor: "#FFD978",
             borderRadius: 10,
             color: "primary",
             fontSize: "18px",
-            fontWeight: "bold",
+            textTransform: "none",
           }}
         >
           Đăng nhập dành cho giáo viên
