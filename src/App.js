@@ -7,6 +7,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" exact element={<Login />} />
         <Route path="/home" exact element={<HomeStudent />} />
         <Route path="/login" exact element={<Login />} />
       </Routes>
