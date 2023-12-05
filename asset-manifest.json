@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/co3001-hcmut_ssps/static/css/main.7202d63c.css",
+    "main.js": "/co3001-hcmut_ssps/static/js/main.5c761334.js",
+    "static/media/akaya-telivigala-telugu-400-normal.woff2": "/co3001-hcmut_ssps/static/media/akaya-telivigala-telugu-400-normal.cc24af700d82d6ced8f6.woff2",
+    "static/media/akaya-telivigala-telugu-400-normal.woff": "/co3001-hcmut_ssps/static/media/akaya-telivigala-telugu-400-normal.e112204d4f41f4f53710.woff",
+    "static/media/akaya-telivigala-latin-400-normal.woff2": "/co3001-hcmut_ssps/static/media/akaya-telivigala-latin-400-normal.6adfb2bb1dd65aa73a6c.woff2",
+    "static/media/akaya-telivigala-latin-400-normal.woff": "/co3001-hcmut_ssps/static/media/akaya-telivigala-latin-400-normal.bc1e79e5c923a6ba890d.woff",
+    "static/media/be-vietnam-pro-latin-400-normal.woff2": "/co3001-hcmut_ssps/static/media/be-vietnam-pro-latin-400-normal.cfffddbc8f8f109a1b3d.woff2",
+    "static/media/akaya-telivigala-latin-ext-400-normal.woff2": "/co3001-hcmut_ssps/static/media/akaya-telivigala-latin-ext-400-normal.806924fe3d6edb5e4e59.woff2",
+    "static/media/roboto-latin-400-normal.woff2": "/co3001-hcmut_ssps/static/media/roboto-latin-400-normal.b009a76ad6afe4ebd301.woff2",
+    "static/media/roboto-cyrillic-ext-400-normal.woff2": "/co3001-hcmut_ssps/static/media/roboto-cyrillic-ext-400-normal.804378952da8a10faae2.woff2",
+    "static/media/be-vietnam-pro-latin-400-normal.woff": "/co3001-hcmut_ssps/static/media/be-vietnam-pro-latin-400-normal.72bd3ad5b5cc01b302eb.woff",
+    "static/media/roboto-latin-400-normal.woff": "/co3001-hcmut_ssps/static/media/roboto-latin-400-normal.3f2b9a42f643e62a49b7.woff",
+    "static/media/roboto-cyrillic-ext-400-normal.woff": "/co3001-hcmut_ssps/static/media/roboto-cyrillic-ext-400-normal.af4d91666ea345601bea.woff",
+    "static/media/akaya-telivigala-latin-ext-400-normal.woff": "/co3001-hcmut_ssps/static/media/akaya-telivigala-latin-ext-400-normal.75510d2b3f282db9b14e.woff",
+    "static/media/roboto-latin-ext-400-normal.woff2": "/co3001-hcmut_ssps/static/media/roboto-latin-ext-400-normal.861b791f9de857a6e7bc.woff2",
+    "static/media/be-vietnam-pro-latin-ext-400-normal.woff2": "/co3001-hcmut_ssps/static/media/be-vietnam-pro-latin-ext-400-normal.c20a80fa4ee1ce5a10dd.woff2",
+    "static/media/be-vietnam-pro-vietnamese-400-normal.woff2": "/co3001-hcmut_ssps/static/media/be-vietnam-pro-vietnamese-400-normal.7a9d6d360c82491194ac.woff2",
+    "static/media/roboto-latin-ext-400-normal.woff": "/co3001-hcmut_ssps/static/media/roboto-latin-ext-400-normal.e757c42df6aaa3e11b62.woff",
+    "static/media/roboto-cyrillic-400-normal.woff2": "/co3001-hcmut_ssps/static/media/roboto-cyrillic-400-normal.71a33b6b50457b2c903a.woff2",
+    "static/media/roboto-cyrillic-400-normal.woff": "/co3001-hcmut_ssps/static/media/roboto-cyrillic-400-normal.c1d66054fe23e181d92c.woff",
+    "static/media/be-vietnam-pro-latin-ext-400-normal.woff": "/co3001-hcmut_ssps/static/media/be-vietnam-pro-latin-ext-400-normal.85433c0fbddf4e1d5452.woff",
+    "static/media/roboto-greek-400-normal.woff2": "/co3001-hcmut_ssps/static/media/roboto-greek-400-normal.c35e4c3958e209d17b31.woff2",
+    "static/media/roboto-greek-400-normal.woff": "/co3001-hcmut_ssps/static/media/roboto-greek-400-normal.dfdff8fa12eac629d29f.woff",
+    "static/media/roboto-vietnamese-400-normal.woff2": "/co3001-hcmut_ssps/static/media/roboto-vietnamese-400-normal.3230f9b040f3c630e0c3.woff2",
+    "static/media/be-vietnam-pro-vietnamese-400-normal.woff": "/co3001-hcmut_ssps/static/media/be-vietnam-pro-vietnamese-400-normal.ec65995d837af433f4eb.woff",
+    "static/media/roboto-vietnamese-400-normal.woff": "/co3001-hcmut_ssps/static/media/roboto-vietnamese-400-normal.e0e8ba725ebd107367a8.woff",
+    "static/media/roboto-greek-ext-400-normal.woff2": "/co3001-hcmut_ssps/static/media/roboto-greek-ext-400-normal.169619821ea93019d1bb.woff2",
+    "static/media/roboto-greek-ext-400-normal.woff": "/co3001-hcmut_ssps/static/media/roboto-greek-ext-400-normal.f708607d2a7290fb8bfa.woff",
+    "index.html": "/co3001-hcmut_ssps/index.html",
+    "main.7202d63c.css.map": "/co3001-hcmut_ssps/static/css/main.7202d63c.css.map",
+    "main.5c761334.js.map": "/co3001-hcmut_ssps/static/js/main.5c761334.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7202d63c.css",
+    "static/js/main.5c761334.js"
+  ]
+}
