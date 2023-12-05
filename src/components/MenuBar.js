@@ -15,7 +15,7 @@ import { useNavigate } from "react-router-dom";
 
 const pages = [
   { text: "Trang chủ", href: "/home" },
-  { text: "In", href: "/home" },
+  { text: "In", href: "/print" },
   { text: "Mua trang", href: "/home" },
   { text: "Lịch sử", href: "/home" },
 ];
@@ -41,9 +41,9 @@ export default function MenuBar() {
     <AppBar position="static" sx={{ height: "67px" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Box>
+          <Box sx={{ pl: 5 }}>
             <Button
-              onClick={() => handleNav("/login")}
+              onClick={() => handleNav("/home")}
               startIcon={
                 <img
                   alt="logo"
@@ -69,7 +69,7 @@ export default function MenuBar() {
               </Button>
             ))}
           </Box>
-          <Box sx={{ flexGrow: 0, pr: 20 }}>
+          <Box sx={{ flexGrow: 0, pr: 5 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ pr: 0 }}>
                 <Avatar
