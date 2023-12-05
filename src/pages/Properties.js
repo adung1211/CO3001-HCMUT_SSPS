@@ -1,38 +1,19 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import MenuBar from "../components/MenuBar";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
-import { styled } from "@mui/material/styles";
 import Checkbox from '@mui/material/Checkbox';
 import TextField from '@mui/material/TextField';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Button from "@mui/material/Button";
-import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import NativeSelect from '@mui/material/NativeSelect';
-import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormLabel from '@mui/material/FormLabel';
-import CloudUploadIcon from "@mui/icons-material/CloudUpload";
-import UploadFileIcon from '@mui/icons-material/UploadFile';
-import ArrowRightOutlinedIcon from '@mui/icons-material/ArrowRightOutlined';
-
-const VisuallyHiddenInput = styled("input")({
-  clip: "rect(0 0 0 0)",
-  clipPath: "inset(50%)",
-  height: 1,
-  overflow: "hidden",
-  position: "absolute",
-  bottom: 0,
-  left: 0,
-  whiteSpace: "nowrap",
-  width: 1,
-});
 
 
 export default function Properties() {
@@ -44,10 +25,6 @@ export default function Properties() {
     const location = useLocation();
     const selectedFileName = location.state?.selectedFileName;
     const navigate = useNavigate();
-    function changeContent(newContent) {
-        console.log(newContent);
-        document.getElementById('selectedSize').innerText = newContent;
-    }
     const handleContinue = () => {
         navigate("/");
       };
