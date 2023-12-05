@@ -50,7 +50,7 @@ export default function Login() {
             fontWeight: "bold",
           }}
         >
-          Test
+          Đăng nhập
         </Typography>
 
         <Button
