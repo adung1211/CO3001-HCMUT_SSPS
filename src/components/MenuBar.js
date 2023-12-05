@@ -72,7 +72,10 @@ export default function MenuBar() {
           <Box sx={{ flexGrow: 0, pr: 20 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ pr: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar
+                  alt="Remy Sharp"
+                  src="https://i.imgur.com/QOwoGb5.jpg"
+                />
               </IconButton>
             </Tooltip>
             <Menu
