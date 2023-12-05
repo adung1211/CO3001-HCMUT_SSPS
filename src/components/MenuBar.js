@@ -124,6 +124,7 @@ export default function MenuBar() {
                   </IconButton>
                 </Tooltip>
                 <Menu
+                  sx={{ ml: -5 }}
                   id="menu-appbar"
                   anchorEl={anchorElUser}
                   keepMounted
