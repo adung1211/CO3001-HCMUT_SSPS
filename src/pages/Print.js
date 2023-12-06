@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MenuBar from "../components/MenuBar";
 import Typography from "@mui/material/Typography";
@@ -7,8 +7,8 @@ import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
-import UploadFileIcon from '@mui/icons-material/UploadFile';
-import ArrowRightOutlinedIcon from '@mui/icons-material/ArrowRightOutlined';
+import UploadFileIcon from "@mui/icons-material/UploadFile";
+import ArrowRightOutlinedIcon from "@mui/icons-material/ArrowRightOutlined";
 
 const VisuallyHiddenInput = styled("input")({
   clip: "rect(0 0 0 0)",
@@ -21,7 +21,6 @@ const VisuallyHiddenInput = styled("input")({
   whiteSpace: "nowrap",
   width: 1,
 });
-
 
 export default function Print() {
   const fileInputRef = useRef(null);
@@ -38,12 +37,12 @@ export default function Print() {
     event.preventDefault();
     event.currentTarget.style.border = "1px dashed #1B3764";
   };
-  
+
   const handleFileDragOver = (event) => {
     event.preventDefault();
     event.currentTarget.style.border = "1px dashed #1B3764";
   };
-  
+
   const handleFileDragLeave = (event) => {
     event.preventDefault();
     event.currentTarget.style.border = "2px dashed #1B3764";
@@ -70,7 +69,7 @@ export default function Print() {
     fileInputRef.current.click();
   };
   const handleContinue = () => {
-    navigate("/Properties", { state: { selectedFileName } });
+    navigate("/properties", { state: { selectedFileName } });
   };
   return (
     <div>
@@ -120,28 +119,26 @@ export default function Print() {
             onDragOver={handleFileDragOver}
             onDrop={handleFileDrop}
           >
-            <UploadFileIcon sx={{fontSize: 180, marginTop: -5}}/>
+            <UploadFileIcon sx={{ fontSize: 180, marginTop: -5 }} />
             {selectedFileName && (
-              <Typography>
-                Selected File: {selectedFileName}
-              </Typography>
+              <Typography>Selected File: {selectedFileName}</Typography>
             )}
             <Button
               variant="contained"
               component="label"
               onClick={openFileInput}
               startIcon={<CloudUploadIcon />}
-              sx={{ width:130, marginTop: 2 }}
+              sx={{ width: 130, marginTop: 2 }}
             >
               Chọn tệp
             </Button>
             {showContinueButton && (
-              <Button 
+              <Button
                 variant="contained"
                 component="label"
                 onClick={handleContinue}
-                startIcon={<ArrowRightOutlinedIcon/>}
-                sx={{ width:130,marginTop: 1 }}
+                startIcon={<ArrowRightOutlinedIcon />}
+                sx={{ width: 130, marginTop: 1 }}
               >
                 Tiếp tục
               </Button>
@@ -149,13 +146,11 @@ export default function Print() {
             <VisuallyHiddenInput
               type="file"
               ref={fileInputRef}
-              style={{ display: 'none' }}
+              style={{ display: "none" }}
               onChange={handleFileInputChange}
             />
-            <Typography
-              sx={{marginTop: 2, marginBottom :-5}}
-            >
-                Hoặc kéo thả ở đây
+            <Typography sx={{ marginTop: 2, marginBottom: -5 }}>
+              Hoặc kéo thả ở đây
             </Typography>
           </Box>
         </Box>

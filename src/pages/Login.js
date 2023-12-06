@@ -9,7 +9,7 @@ import { useContext } from "react";
 
 export default function Login() {
   const navigate = useNavigate();
-  const { logAsStudent } = useContext(UserContext);
+  const { logAsStudent, logAsSPSO } = useContext(UserContext);
 
   return (
     <Box
@@ -77,6 +77,10 @@ export default function Login() {
             color: "primary",
             fontSize: "18px",
             textTransform: "none",
+          }}
+          onClick={() => {
+            logAsSPSO();
+            navigate("/home");
           }}
         >
           Đăng nhập dành cho giáo viên

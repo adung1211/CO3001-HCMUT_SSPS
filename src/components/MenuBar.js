@@ -15,11 +15,16 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "./UserContext";
 import { useContext } from "react";
 
-const pages = [
+const pagesStudent = [
   { text: "Trang chủ", href: "/home" },
   { text: "In", href: "/print" },
-  { text: "Mua trang", href: "/home" },
-  { text: "Lịch sử", href: "/home" },
+  { text: "Mua trang", href: "/buy" },
+  { text: "Lịch sử", href: "/history" },
+];
+const pagesSPSO = [
+  { text: "Trang chủ", href: "/home" },
+  { text: "Quản lý máy in", href: "/printers" },
+  { text: "Quản lý trang in", href: "/papers" },
 ];
 const settings = [{ text: "Đăng xuất", href: "/login" }];
 
@@ -96,9 +101,9 @@ export default function MenuBar() {
           {state.log === "student" && (
             <>
               <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-                {pages.map((page) => (
+                {pagesStudent.map((pages) => (
                   <Button
-                    key={page}
+                    key={pages}
                     sx={{
                       my: 2,
                       color: "white",
@@ -108,9 +113,9 @@ export default function MenuBar() {
                         opacity: 0.5,
                       },
                     }}
-                    onClick={() => handleNav(page.href)}
+                    onClick={() => handleNav(pages.href)}
                   >
-                    {page.text}
+                    {pages.text}
                   </Button>
                 ))}
               </Box>
@@ -120,6 +125,56 @@ export default function MenuBar() {
                     <Avatar
                       alt="Remy Sharp"
                       src="https://i.imgur.com/QOwoGb5.jpg"
+                    />
+                  </IconButton>
+                </Tooltip>
+                <Menu
+                  sx={{ ml: -5 }}
+                  id="menu-appbar"
+                  anchorEl={anchorElUser}
+                  keepMounted
+                  open={Boolean(anchorElUser)}
+                  onClose={handleCloseUserMenu}
+                >
+                  {settings.map((setting) => (
+                    <MenuItem
+                      key={setting}
+                      onClick={() => handleCloseUserMenu(setting.text)}
+                    >
+                      <Typography textAlign="center">{setting.text}</Typography>
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </Box>
+            </>
+          )}
+          {state.log === "spso" && (
+            <>
+              <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+                {pagesSPSO.map((pages) => (
+                  <Button
+                    key={pages}
+                    sx={{
+                      my: 2,
+                      color: "white",
+                      display: "block",
+                      fontSize: "14px",
+                      "&:hover": {
+                        opacity: 0.5,
+                      },
+                    }}
+                    onClick={() => handleNav(pages.href)}
+                  >
+                    {pages.text}
+                  </Button>
+                ))}
+              </Box>
+              <Box sx={{ flexGrow: 0, pr: 5 }}>
+                <Tooltip title="Open settings">
+                  <IconButton onClick={handleOpenUserMenu} sx={{ pr: 0 }}>
+                    <Avatar
+                      alt="Doraemon"
+                      src="https://inkythuatso.com/uploads/thumbnails/800/2022/03/anh-doremon-cute-5-16-13-56-12.jpg"
                     />
                   </IconButton>
                 </Tooltip>

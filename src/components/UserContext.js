@@ -9,11 +9,15 @@ const UserProvider = ({ children }) => {
     setState({ log: "student" });
   };
 
+  const logAsSPSO = () => {
+    setState({ log: "spso" });
+  };
+
   const logOut = () => {
     setState({ log: "none" });
   };
 
-  const ContextData = { state, logAsStudent, logOut };
+  const ContextData = { state, logAsStudent, logAsSPSO, logOut };
 
   return (
     <UserContext.Provider value={ContextData}>{children}</UserContext.Provider>
