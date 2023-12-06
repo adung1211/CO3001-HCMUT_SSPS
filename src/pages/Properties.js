@@ -42,11 +42,9 @@ export default function Properties() {
             justifyContent: "center",
             bgcolor: "#f3f3f3",
             border: "1px solid #666161",
-            borderRadius: "11px",
-            padding: "10px",
-            marginLeft: 3,
-            height: 637,
-            width: 600,
+            borderRadius: "10px",
+            height: 850,
+            width: 800,
           }}
         >
           <img
@@ -73,17 +71,18 @@ export default function Properties() {
           justifyContent="center"
           alignItems="center"
           sx={{
-            height: 650,
-            width: 563,
-            borderStyle: "solid",
+            height: 850,
+            width: 363,
+            marginLeft: 2,
+            borderRadius: "10px",
             bgcolor: "#BFD6E8",
+            border: "1px solid #666161",
           }}
         >
           <Typography
             sx={{
               color: "#000000",
               fontFamily: "Inter-Regular, Helvetica",
-              paddingTop: 8,
               fontSize: 26,
               fontWeight: 460,
               letterSpacing: 0,
