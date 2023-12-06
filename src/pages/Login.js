@@ -40,7 +40,7 @@ export default function Login() {
         <img
           alt="ko bit"
           src="https://i.imgur.com/QVHXxp4.png"
-          style={{ width: "60vh", paddingTop: "40px" }}
+          style={{ width: "400px", paddingTop: "40px" }}
         />
         <Typography
           sx={{
