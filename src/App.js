@@ -8,6 +8,7 @@ import Buy from "./pages/Buy";
 import History from "./pages/History";
 import Printers from "./pages/Printers";
 import Papers from "./pages/Printers";
+import ChoosePrinter from "./pages/ChoosePrinter";
 
 import UserProvider from "./components/UserContext";
 
@@ -25,6 +26,7 @@ export default function App() {
           <Route path="/history" exact element={<History />} />
           <Route path="/printers" exact element={<Printers />} />
           <Route path="/papers" exact element={<Papers />} />
+          <Route path="/chooseprinter" exact element={<ChoosePrinter />} />
         </Routes>
       </HashRouter>
     </UserProvider>

@@ -25,7 +25,7 @@ export default function Properties() {
   const selectedFileName = location.state?.selectedFileName;
   const navigate = useNavigate();
   const handleContinue = () => {
-    navigate("/");
+    navigate("/chooseprinter");
   };
   const handleCancel = () => {
     navigate("/Print");
