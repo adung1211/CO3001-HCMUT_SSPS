@@ -20,6 +20,8 @@ import Select from "@mui/material/Select";
 
 import MenuBar from "../components/MenuBar";
 
+import { usePrintContext } from "../components/PrintContext";
+
 const DefaultList = [
   {
     id: 1,
@@ -100,19 +102,21 @@ export default function ChoosePrinter() {
   const [filterBuild, setFilterBuild] = React.useState("");
   const [PrinterList, setPrinterList] = React.useState(DefaultList);
   const [choosen, setChoosen] = React.useState("");
+  const { updatePrintingInfo } = usePrintContext();
 
   const handleChoose = (val) => {
     setChoosen(val.id);
+    updatePrintingInfo({
+      printerName: val.name,
+      printerLocation: `${val.fac} ${val.build}-${val.room}`,
+    });
   };
   const handleChangeFac = (event) => {
     const selectedFac = event.target.value;
 
-    // Filter the PrinterList based on the selected facility
     const filteredPrinters = DefaultList.filter(
       (printer) => printer.fac === selectedFac
     );
-
-    // Update the state with the filtered facility and clear the filterBuild
     setFilterFac(selectedFac);
     setPrinterList(filteredPrinters);
     if (selectedFac === "") {

@@ -9,6 +9,7 @@ import Button from "@mui/material/Button";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
 import ArrowRightOutlinedIcon from "@mui/icons-material/ArrowRightOutlined";
+import { usePrintContext } from "../components/PrintContext";
 
 const VisuallyHiddenInput = styled("input")({
   clip: "rect(0 0 0 0)",
@@ -24,12 +25,12 @@ const VisuallyHiddenInput = styled("input")({
 
 export default function Print() {
   const fileInputRef = useRef(null);
-  const [selectedFileName, setSelectedFileName] = useState("");
   const [showContinueButton, setShowContinueButton] = useState(false);
+  const { printingInfo, updatePrintingInfo } = usePrintContext();
   const navigate = useNavigate();
   const handleFileSelect = (file) => {
     console.log("Selected File Name:", file.name);
-    setSelectedFileName(file.name);
+    updatePrintingInfo({ fileName: file.name });
     setShowContinueButton(true);
   };
 
@@ -69,7 +70,7 @@ export default function Print() {
     fileInputRef.current.click();
   };
   const handleContinue = () => {
-    navigate("/properties", { state: { selectedFileName } });
+    navigate("/properties");
   };
   return (
     <div>
@@ -120,8 +121,8 @@ export default function Print() {
             onDrop={handleFileDrop}
           >
             <UploadFileIcon sx={{ fontSize: 180, marginTop: -5 }} />
-            {selectedFileName && (
-              <Typography>Selected File: {selectedFileName}</Typography>
+            {printingInfo.fileName && (
+              <Typography>Selected File: {printingInfo.fileName}</Typography>
             )}
             <Button
               variant="contained"
