@@ -7,6 +7,7 @@ export const PrintProvider = ({ children }) => {
     fileName: '',
     doubleSided: false,
     paperSize: 'A4',
+    printerId: '',
     printerName: '',
     printerLocation: '',
     orientation: "In dọc",

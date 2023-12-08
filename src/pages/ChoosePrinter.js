@@ -107,6 +107,7 @@ export default function ChoosePrinter() {
   const handleChoose = (val) => {
     setChoosen(val.id);
     updatePrintingInfo({
+      printerId: val.id,
       printerName: val.name,
       printerLocation: `${val.fac} ${val.build}-${val.room}`,
     });

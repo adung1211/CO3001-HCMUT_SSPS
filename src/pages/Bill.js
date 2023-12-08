@@ -32,7 +32,7 @@ export default function Bill() {
               alignItems="center"
               sx={{
                 height: 700,
-                width: 700,
+                width: 800,
                 marginTop: 5,
                 borderRadius: "10px",
                 bgcolor: "#BFD6E8",
@@ -84,7 +84,7 @@ export default function Bill() {
                 >
                 Mã In: {Math.floor(100000 + Math.random() * 900000)}
                 </Typography>
-                <Grid container spacing={2} sx={{width:500, marginTop:2}}>
+                <Grid container spacing={2} sx={{width:600, marginTop:2}}>
                 <Grid item xs={6} style={gridItemStyle}>
                     <Typography variant="h6">Tên tệp in:</Typography>
                 </Grid>
@@ -121,7 +121,7 @@ export default function Bill() {
                     <Typography variant="h6">Máy in:</Typography>
                 </Grid>
                 <Grid item xs={6} style={gridItemStyle}>
-                    <Typography variant="h6" textAlign="right">{printingInfo.printerName}</Typography>
+                    <Typography variant="h6" textAlign="right">({printingInfo.printerId}) {printingInfo.printerName}</Typography>
                 </Grid>
                 </Grid>
                 <Button
