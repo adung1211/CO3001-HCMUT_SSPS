@@ -43,6 +43,10 @@ export default function Method() {
         padding: 2,
         bgcolor: "#A50164",
         borderRadius: 10,
+        transition: 'background-color 0.3s ease',
+        '&:hover': {
+            backgroundColor: '#7a014a',
+        },
       }}
       >
         <Grid container justifyContent="space-between" alignItems="center">
@@ -85,6 +89,10 @@ export default function Method() {
         padding: 2,
         bgcolor: "#118ACB",
         borderRadius: 10,
+        transition: 'background-color 0.3s ease',
+        '&:hover': {
+            backgroundColor: '#1866E1',
+        },
       }}
       >
         <Grid container justifyContent="space-between" alignItems="center">
@@ -126,6 +134,10 @@ export default function Method() {
         padding: 2,
         bgcolor: "#1B3764",
         borderRadius: 10,
+        transition: 'background-color 0.3s ease',
+        '&:hover': {
+            backgroundColor: '#132747',
+        },
       }}
       >
         <Grid container justifyContent="space-between" alignItems="center">
