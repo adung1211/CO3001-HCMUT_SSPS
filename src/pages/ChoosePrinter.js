@@ -146,7 +146,7 @@ export default function ChoosePrinter() {
     } else {
       setOpen(true);
       setTimeout(() => {
-        navigate("/home");
+        navigate("/bill");
       }, 2000);
     }
   };

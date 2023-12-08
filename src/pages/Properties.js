@@ -16,7 +16,7 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormLabel from "@mui/material/FormLabel";
 
 export default function Properties() {
-  const [value, setValue] = React.useState("In ngang");
+  const [value, setValue] = React.useState("In dọc");
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -147,14 +147,14 @@ export default function Properties() {
               onChange={handleChange}
             >
               <FormControlLabel
-                value="In ngang"
-                control={<Radio />}
-                label="In ngang"
-              />
-              <FormControlLabel
                 value="In dọc"
                 control={<Radio />}
                 label="In dọc"
+              />
+              <FormControlLabel
+                value="In ngang"
+                control={<Radio />}
+                label="In ngang"
               />
             </RadioGroup>
           </FormControl>
