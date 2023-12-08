@@ -98,8 +98,8 @@ export default function Print() {
           justifyContent="center"
           alignItems="center"
           sx={{
-            width: 1500,
-            height: 400,
+            width: 1200,
+            height: 270,
             borderRadius: 10,
             bgcolor: "#E5E7EB",
           }}
@@ -110,8 +110,8 @@ export default function Print() {
             justifyContent="center"
             alignItems="center"
             sx={{
-              width: 1450,
-              height: 350,
+              width: 1170,
+              height: 240,
               borderRadius: 10,
               border: "2px dashed #1b3764",
             }}
@@ -120,7 +120,7 @@ export default function Print() {
             onDragOver={handleFileDragOver}
             onDrop={handleFileDrop}
           >
-            <UploadFileIcon sx={{ fontSize: 180, marginTop: -5 }} />
+            <UploadFileIcon sx={{ fontSize: 50, marginTop: -5 }} />
             {printingInfo.fileName && (
               <Typography>Selected File: {printingInfo.fileName}</Typography>
             )}
@@ -129,7 +129,7 @@ export default function Print() {
               component="label"
               onClick={openFileInput}
               startIcon={<CloudUploadIcon />}
-              sx={{ width: 130, marginTop: 2 }}
+              sx={{ width: 190, marginTop: 2, fontSize: 18 }}
             >
               Chọn tệp
             </Button>
@@ -139,7 +139,7 @@ export default function Print() {
                 component="label"
                 onClick={handleContinue}
                 startIcon={<ArrowRightOutlinedIcon />}
-                sx={{ width: 130, marginTop: 1 }}
+                sx={{ width: 190, marginTop: 1, fontSize: 18 }}
               >
                 Tiếp tục
               </Button>

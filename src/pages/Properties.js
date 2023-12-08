@@ -90,7 +90,7 @@ export default function Properties() {
             sx={{
               color: "#000000",
               fontFamily: "Inter-Regular, Helvetica",
-              fontSize: 26,
+              fontSize: 17,
               fontWeight: 460,
               letterSpacing: 0,
               lineHeight: "normal",
@@ -114,13 +114,15 @@ export default function Properties() {
             </FormControl>
           </Box>
           <Box>
-          <FormControlLabel
-            control={<Checkbox id="doubleSidedPrinting" />}
-            label={<Typography style={{ color: "#000000" }}>In 2 mặt</Typography>}
-            checked={printingInfo.doubleSided}
-            onChange={handleDoubleSidedPrintingChange}
-            sx={{ width: "200px", marginTop: 3 }}
-          />
+            <FormControlLabel
+              control={<Checkbox id="doubleSidedPrinting" />}
+              label={
+                <Typography style={{ color: "#000000" }}>In 2 mặt</Typography>
+              }
+              checked={printingInfo.doubleSided}
+              onChange={handleDoubleSidedPrintingChange}
+              sx={{ width: "200px", marginTop: 3 }}
+            />
           </Box>
           <TextField
             label="Trang in"
