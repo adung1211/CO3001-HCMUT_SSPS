@@ -14,6 +14,16 @@ import UpdateDialog from "../components/UpdateDialog";
 import DisableDialog from "../components/DisableDialog";
 import EnableDialog from "../components/EnableDialog";
 
+const sharedButtonStyle = {
+  backgroundColor: 'your-custom-color',
+  boxShadow: 1,
+  borderRadius: "5px",
+  paddingTop: "2px",
+  paddingBottom: "2px",
+  marginRight: "10px",
+  fontSize: "12px"
+  // Thêm các thuộc tính khác theo nhu cầu của bạn
+};
 
 const Detailprinter = ({ printer, isOpen, handleClose }) => {
   const [updateDialogOpen, setUpdateDialogOpen] = useState(false);
@@ -21,12 +31,12 @@ const Detailprinter = ({ printer, isOpen, handleClose }) => {
   const [enableDialogOpen, setEnableDialogOpen] = useState(false);
   return (
     <Dialog open={isOpen} onClose={handleClose}>
-      <DialogTitle>THÔNG TIN MÁY IN</DialogTitle>
+      <DialogTitle sx={{ textAlign: 'center' }}>THÔNG TIN MÁY IN</DialogTitle>
       <DialogContent>
         {printer && (
           <>
-            <Grid container>
-              <Grid item md={4}>
+            <Grid container xs={{padding: "20px"}}>
+              <Grid item md={6}>
                 <Box
                   sx={{
                     display: "flex",
@@ -42,7 +52,7 @@ const Detailprinter = ({ printer, isOpen, handleClose }) => {
                 </Box>
               </Grid>
 
-              <Grid item xs={12} md={8}>
+              <Grid item md={6}>
                   <Typography variant="h6">{printer.brand}</Typography>
                   <Typography color="text.secondary">ID: {printer.id}</Typography>
                   <Typography color="text.secondary">
@@ -54,17 +64,18 @@ const Detailprinter = ({ printer, isOpen, handleClose }) => {
           </>
         )}
       </DialogContent>
-      <DialogActions>
-        <Button onClick={() => setUpdateDialogOpen(true)} color="primary">
-          Cập nhật
-        </Button>
-        <Button onClick={() => setDisableDialogOpen(true)} color="secondary">
-          Disable
-        </Button>
-        <Button onClick={() => setEnableDialogOpen(true)} color="success">
-          Enable
-        </Button>
-        <Button onClick={handleClose}>Đóng</Button>
+      <DialogActions sx={{ display: 'flex', justifyContent: 'space-between', padding: "10px" }}>
+            <Button onClick={() => setUpdateDialogOpen(true)} color="primary" variant="contained" sx={sharedButtonStyle}>
+              Cập nhật
+            </Button>
+          <Box>
+            <Button onClick={() => setDisableDialogOpen(true)} color="error" variant="contained" sx={sharedButtonStyle}>
+              Disable
+            </Button>
+            <Button onClick={() => setEnableDialogOpen(true)} color="success" variant="contained" sx={sharedButtonStyle}>
+              Enable
+            </Button>
+          </Box>
       </DialogActions>
         <UpdateDialog isOpen={updateDialogOpen} handleClose={() => setUpdateDialogOpen(false)} />
 

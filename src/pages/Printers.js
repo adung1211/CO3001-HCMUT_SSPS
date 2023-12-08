@@ -98,7 +98,7 @@ export default function Printers() {
             padding: "20px"
           }}
         >
-          <Grid container spacing={5}>
+          <Grid container spacing={3}>
             {printers.map((printer) => (
               <Grid item key={printer.id} xs-none md={4} lg={3} sm={6}  >
                 <PrinterCard
