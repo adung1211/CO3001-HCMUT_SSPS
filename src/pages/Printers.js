@@ -38,29 +38,8 @@ const sharedButtonStyle = {
   // Thêm các thuộc tính khác theo nhu cầu của bạn
 };
 
-const statusButtonStyle = {
-  width: "20px",
-  padding: "0px",// Định dạng nút thành hình tròn// Loại bỏ padding để nút trở thành hình tròn chính xác
-  position: "absolute", // Đặt vị trí tuyệt đối
-  top: "10px", // Đặt vị trí ở góc trên
-  right: "5px", // Đặt vị trí ở góc phải
-  fontSize: "12px"
-  // Thêm các thuộc tính khác theo nhu cầu của bạn
-};
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  pt: 2,
-  px: 4,
-  pb: 3,
-};
+
 
 
 
@@ -89,7 +68,7 @@ export default function Printers() {
         >Quản lý máy in</Typography>
         <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <Box>
-            <Button startIcon={<FilterList />} variant="contained" sx={{ ...sharedButtonStyle, backgroundColor: '#FFFFFF', color: 'black' }}>
+            <Button startIcon={<FilterList />}  sx={{ ...sharedButtonStyle, backgroundColor: '#FFFFFF', color: 'black' }}>
               Filter
             </Button>
 
