@@ -20,6 +20,8 @@ import Select from "@mui/material/Select";
 
 import MenuBar from "../components/MenuBar";
 
+import { usePrintContext } from "../components/PrintContext";
+
 const DefaultList = [
   {
     id: 1,
@@ -49,7 +51,7 @@ const DefaultList = [
     id: 4,
     name: "Epson EcoTank ET4760",
     fac: "Lý Thường Kiệt",
-    build: "C3",
+    build: "C4",
     room: "212",
     state: "Sẵn sàng",
   },
@@ -73,7 +75,7 @@ const DefaultList = [
     id: 7,
     name: "Brother HLL2380DW",
     fac: "Lý Thường Kiệt",
-    build: "B4",
+    build: "B3",
     room: "102",
     state: "Sẵn sàng",
   },
@@ -81,7 +83,7 @@ const DefaultList = [
     id: 8,
     name: "Brother HLL2380DW",
     fac: "Lý Thường Kiệt",
-    build: "B4",
+    build: "B3",
     room: "102",
     state: "Không sẵn sàng",
   },
@@ -99,24 +101,30 @@ export default function ChoosePrinter() {
   const [filterFac, setFilterFac] = React.useState("");
   const [filterBuild, setFilterBuild] = React.useState("");
   const [PrinterList, setPrinterList] = React.useState(DefaultList);
+  const [PrinterListFac, setPrinterListFac] = React.useState(DefaultList);
   const [choosen, setChoosen] = React.useState("");
+  const { updatePrintingInfo } = usePrintContext();
 
   const handleChoose = (val) => {
     setChoosen(val.id);
+    updatePrintingInfo({
+      printerId: val.id,
+      printerName: val.name,
+      printerLocation: `${val.fac} ${val.build}-${val.room}`,
+    });
   };
   const handleChangeFac = (event) => {
     const selectedFac = event.target.value;
 
-    // Filter the PrinterList based on the selected facility
     const filteredPrinters = DefaultList.filter(
       (printer) => printer.fac === selectedFac
     );
-
-    // Update the state with the filtered facility and clear the filterBuild
     setFilterFac(selectedFac);
     setPrinterList(filteredPrinters);
+    setPrinterListFac(filteredPrinters);
     if (selectedFac === "") {
       setPrinterList(DefaultList);
+      setPrinterListFac(DefaultList);
     }
     setFilterBuild("");
   };
@@ -124,7 +132,7 @@ export default function ChoosePrinter() {
     const selectedBuild = event.target.value;
 
     // Filter the PrinterList based on the selected building
-    const filteredPrinters = PrinterList.filter(
+    const filteredPrinters = PrinterListFac.filter(
       (printer) => printer.build === selectedBuild
     );
 
@@ -132,7 +140,7 @@ export default function ChoosePrinter() {
     setFilterBuild(selectedBuild);
     setPrinterList(filteredPrinters);
     if (selectedBuild === "") {
-      setPrinterList(DefaultList);
+      setPrinterList(PrinterListFac);
     }
   };
   const [open, setOpen] = React.useState(false);
