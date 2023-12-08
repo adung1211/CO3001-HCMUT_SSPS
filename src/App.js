@@ -12,6 +12,7 @@ import ChoosePrinter from "./pages/ChoosePrinter";
 import Bill from "./pages/Bill";
 import InputNumber from "./pages/InputNumber";
 import Method from "./pages/Method";
+import PaperBill from "./pages/PaperBill";
 
 import UserProvider from "./components/UserContext";
 import { PrintProvider } from "./components/PrintContext";
@@ -35,6 +36,7 @@ export default function App() {
           <Route path="/bill" exact element={<Bill/>} />
           <Route path="/inputnum" exact element={<InputNumber/>} />
           <Route path="/method" exact element={<Method/>} />
+          <Route path="/paperbill" exact element={<PaperBill/>} />
         </Routes>
       </HashRouter>
     </UserProvider>
