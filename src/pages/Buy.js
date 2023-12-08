@@ -38,9 +38,6 @@ export default function Buy() {
         }}
         >
           <Button
-            display="flex"
-            flexDirection={"column"}
-            justifyContent="flex-start"
             onClick = {onGroupContainer1Click}
             sx={{
               mt: 10,
