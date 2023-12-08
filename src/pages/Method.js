@@ -5,8 +5,16 @@ import Button from "@mui/material/Button";
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Method() {
+  const navigate = useNavigate();
+  
+  const onClick = useCallback(() => {
+    navigate("/paperbill");
+  }, [navigate]);
+
   return (
   <div>
     <MenuBar/>
@@ -29,6 +37,7 @@ export default function Method() {
         Chọn phương thức thanh toán:
       </Typography>
       <Button
+      onClick={onClick}
       sx={{
         mt: 5,
         padding: 2,
@@ -70,6 +79,7 @@ export default function Method() {
       </Button>
 
       <Button
+      onClick={onClick}
       sx={{
         mt: 5,
         padding: 2,
@@ -110,6 +120,7 @@ export default function Method() {
         </Grid>
       </Button>
       <Button
+      onClick={onClick}
       sx={{
         mt: 5,
         padding: 2,
