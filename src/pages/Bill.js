@@ -118,10 +118,16 @@ export default function Bill() {
                     <Typography variant="h6" textAlign="right">{printingInfo.printerLocation}</Typography>
                 </Grid>
                 <Grid item xs={6} style={gridItemStyle}>
-                    <Typography variant="h6">Máy in:</Typography>
+                    <Typography variant="h6">ID Máy in:</Typography>
                 </Grid>
                 <Grid item xs={6} style={gridItemStyle}>
-                    <Typography variant="h6" textAlign="right">({printingInfo.printerId}) {printingInfo.printerName}</Typography>
+                    <Typography variant="h6" textAlign="right">{printingInfo.printerId}</Typography>
+                </Grid>
+                <Grid item xs={6} style={gridItemStyle}>
+                    <Typography variant="h6">Tên máy in:</Typography>
+                </Grid>
+                <Grid item xs={6} style={gridItemStyle}>
+                    <Typography variant="h6" textAlign="right">{printingInfo.printerName}</Typography>
                 </Grid>
                 </Grid>
                 <Button
