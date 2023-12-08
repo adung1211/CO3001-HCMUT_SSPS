@@ -12,9 +12,11 @@ import ChoosePrinter from "./pages/ChoosePrinter";
 import Bill from "./pages/Bill";
 
 import UserProvider from "./components/UserContext";
+import { PrintProvider } from "./components/PrintContext";
 
 export default function App() {
   return (
+    <PrintProvider>
     <UserProvider>
       <HashRouter>
         <Routes>
@@ -32,5 +34,6 @@ export default function App() {
         </Routes>
       </HashRouter>
     </UserProvider>
+    </PrintProvider>
   );
 }

@@ -1,5 +1,4 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import MenuBar from "../components/MenuBar";
 import Typography from "@mui/material/Typography";
@@ -14,15 +13,15 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormLabel from "@mui/material/FormLabel";
+import { usePrintContext } from "../components/PrintContext";
 
 export default function Properties() {
-  const [value, setValue] = React.useState("In dọc");
+  const { printingInfo, updatePrintingInfo } = usePrintContext();
 
   const handleChange = (event) => {
-    setValue(event.target.value);
+    const orientationValue = event.target.value;
+    updatePrintingInfo({ orientation: orientationValue });
   };
-  const location = useLocation();
-  const selectedFileName = location.state?.selectedFileName;
   const navigate = useNavigate();
   const handleContinue = () => {
     navigate("/chooseprinter");
@@ -30,6 +29,14 @@ export default function Properties() {
   const handleCancel = () => {
     navigate("/Print");
   };
+  const handlePaperSizeChange = (event) => {
+    updatePrintingInfo({ paperSize: event.target.value });
+  };
+
+  const handleDoubleSidedPrintingChange = (event) => {
+    updatePrintingInfo({ doubleSided: event.target.checked });
+  };
+
   return (
     <div>
       <MenuBar />
@@ -62,7 +69,7 @@ export default function Properties() {
               marginBottom: "5px",
             }}
           >
-            {selectedFileName}
+            {printingInfo.fileName}
           </Typography>
         </Box>
         <Box
@@ -83,22 +90,26 @@ export default function Properties() {
             sx={{
               color: "#000000",
               fontFamily: "Inter-Regular, Helvetica",
-              fontSize: 26,
+              fontSize: 17,
               fontWeight: 460,
               letterSpacing: 0,
               lineHeight: "normal",
               width: "fit-content",
             }}
           >
-            {selectedFileName}
+            {printingInfo.fileName}
           </Typography>
           <Box sx={{ minWidth: 200, marginTop: 4 }}>
             <FormControl fullWidth>
               <Typography style={{ color: "#000000" }}>Cỡ giấy</Typography>
-              <NativeSelect defaultValue={20}>
-                <option value={10}>A3</option>
-                <option value={20}>A4</option>
-                <option value={30}>A5</option>
+              <NativeSelect
+                defaultValue={"A4"}
+                onChange={handlePaperSizeChange}
+                value={printingInfo.paperSize || "A4"}
+              >
+                <option value={"A3"}>A3</option>
+                <option value={"A4"}>A4</option>
+                <option value={"A5"}>A5</option>
               </NativeSelect>
             </FormControl>
           </Box>
@@ -108,6 +119,8 @@ export default function Properties() {
               label={
                 <Typography style={{ color: "#000000" }}>In 2 mặt</Typography>
               }
+              checked={printingInfo.doubleSided}
+              onChange={handleDoubleSidedPrintingChange}
               sx={{ width: "200px", marginTop: 3 }}
             />
           </Box>
@@ -143,7 +156,7 @@ export default function Properties() {
             <RadioGroup
               aria-labelledby="demo-controlled-radio-buttons-group"
               name="controlled-radio-buttons-group"
-              value={value}
+              value={printingInfo.orientation}
               onChange={handleChange}
             >
               <FormControlLabel
