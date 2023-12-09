@@ -1,55 +1,64 @@
-import React, { useState } from "react";
-import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, Box, Grid, InputLabel, MenuItem, FormControl, Select, Typography } from "@mui/material";
+import React, { useState, useEffect } from "react";
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Button,
+  TextField,
+  Box,
+  Grid,
+  InputLabel,
+  MenuItem,
+  FormControl,
+  Select,
+  Typography
+} from "@mui/material";
 
 const AddPrinterDialog = ({ isOpen, handleClose, handleAddPrinter }) => {
   const [newPrinter, setNewPrinter] = useState({
-    id: "",
     name: "",
     brand: "",
-    type: "",
     location: "",
     building: "",
     room: "",
     status: "Offline",
   });
 
-  const [selectedLocation, setSelectedLocation] = React.useState('');
+  const [selectedLocation, setSelectedLocation] = useState('');
 
   const handleInputChange = (field, value) => {
     setNewPrinter({ ...newPrinter, [field]: value });
   };
 
   const handleAddClick = () => {
-    // Kiểm tra xem có giá trị nào bị bỏ trống không trước khi thêm
     if (
-      newPrinter.id &&
       newPrinter.name &&
       newPrinter.brand &&
-      newPrinter.type &&
-      selectedLocation &&  // Sử dụng giá trị từ trạng thái mới này
+      selectedLocation &&
       newPrinter.building &&
       newPrinter.room
     ) {
-      // Tạo đối tượng mới với giá trị location từ selectedLocation
       const printerToAdd = {
         ...newPrinter,
+        id: generatePrinterId(),
         location: selectedLocation,
       };
+
+      // Thêm máy in mới vào danh sách trong context và cập nhật localStorage
       handleAddPrinter(printerToAdd);
+
+      // Reset các trường và đóng dialog
       setNewPrinter({
-        id: "",
         name: "",
         brand: "",
-        type: "",
         building: "",
         room: "",
         status: "Offline",
       });
-      setSelectedLocation(''); 
+      setSelectedLocation('');
       handleClose();
     } else {
-      // Xử lý thông báo lỗi hoặc hành động khác khi thông tin không đủ
-      // Ví dụ:
       alert("Vui lòng điền đầy đủ thông tin trước khi thêm máy in.");
     }
   };
@@ -58,28 +67,22 @@ const AddPrinterDialog = ({ isOpen, handleClose, handleAddPrinter }) => {
     setSelectedLocation(event.target.value);
   };
 
+  // Hàm sinh id cho máy in mới
+  const generatePrinterId = () => {
+    // Lấy danh sách máy in từ localStorage
+    const printers = JSON.parse(localStorage.getItem("printers")) || [];
+    
+    // Nếu danh sách máy in không rỗng, lấy id của máy in cuối cùng và tăng giá trị lên 1
+    const newId = printers.length > 0 ? printers[printers.length - 1].id + 1 : 1;
+    
+    return newId;
+  };
+
   return (
     <Dialog open={isOpen} onClose={handleClose} >
       <DialogTitle sx={{ textAlign: 'center', paddingTop: "60px", fontSize: "20px", fontWeight: "600", color: "#1B3764" }}>THÊM MÁY IN</DialogTitle>
       <DialogContent sx={{ padding: "10px 35px" }}>
         <Box sx={{ padding: "15px" }}>
-          <Box>
-            <Typography sx={{ color: "#666", fontSize: "16px", fontWeight: "600" }}>ID</Typography>
-            <TextField
-              sx={{ marginBottom: "15px" }}
-              id="outlined-helperText"
-              fullWidth
-              placeholder="Type here"
-              size="small"
-              value={newPrinter.id}
-              onChange={(e) => handleInputChange("id", e.target.value)}
-              InputProps={{
-                sx: {
-                  fontSize: '14px',
-                },
-              }}
-            />
-          </Box>
           <Box>
             <Typography sx={{ color: "#666", fontSize: "16px", fontWeight: "600" }}>Tên máy in</Typography>
             <TextField
@@ -98,7 +101,7 @@ const AddPrinterDialog = ({ isOpen, handleClose, handleAddPrinter }) => {
             />
           </Box>
           <Box>
-            <Typography sx={{ color: "#666", fontSize: "16px", fontWeight: "600" }}>Hãng</Typography>
+            <Typography sx={{ color: "#666", fontSize: "16px", fontWeight: "600" }}>Mẫu máy in</Typography>
             <TextField
               sx={{ marginBottom: "15px" }}
               id="outlined-helperText"
@@ -107,23 +110,6 @@ const AddPrinterDialog = ({ isOpen, handleClose, handleAddPrinter }) => {
               size="small"
               value={newPrinter.brand}
               onChange={(e) => handleInputChange("brand", e.target.value)}
-              InputProps={{
-                sx: {
-                  fontSize: '14px',
-                },
-              }}
-            />
-          </Box>
-          <Box>
-            <Typography sx={{ color: "#666", fontSize: "16px", fontWeight: "600" }}>Mẫu máy in</Typography>
-            <TextField
-              sx={{ marginBottom: "20px" }}
-              id="outlined-helperText"
-              fullWidth
-              placeholder="Type here"
-              size="small"
-              value={newPrinter.type}
-              onChange={(e) => handleInputChange("type", e.target.value)}
               InputProps={{
                 sx: {
                   fontSize: '14px',
@@ -145,8 +131,8 @@ const AddPrinterDialog = ({ isOpen, handleClose, handleAddPrinter }) => {
                       fontSize: '14px',
                     }}
                   >
-                    <MenuItem value={10}>Cơ sở Lý Thường Kiệt</MenuItem>
-                    <MenuItem value={20}>Cơ sở Dĩ An</MenuItem>
+                    <MenuItem value={1}>Cơ sở Lý Thường Kiệt</MenuItem>
+                    <MenuItem value={2}>Cơ sở Dĩ An</MenuItem>
                   </Select>
                 </FormControl>
               </Box>

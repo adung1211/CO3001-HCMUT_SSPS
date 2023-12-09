@@ -13,6 +13,7 @@ import {
 import UpdateDialog from "../components/UpdateDialog";
 import DisableDialog from "../components/DisableDialog";
 import EnableDialog from "../components/EnableDialog";
+import { usePrinterListContext, PrinterListProvider } from '../components/PrinterListContext';
 
 const sharedButtonStyle = {
   backgroundColor: 'your-custom-color',
@@ -26,9 +27,29 @@ const sharedButtonStyle = {
 };
 
 const Detailprinter = ({ printer, isOpen, handleClose }) => {
+  const { printers, editPrinter } = usePrinterListContext();
   const [updateDialogOpen, setUpdateDialogOpen] = useState(false);
   const [disableDialogOpen, setDisableDialogOpen] = useState(false);
   const [enableDialogOpen, setEnableDialogOpen] = useState(false);
+  const handleCloseDetailprinter = () => {
+    // Xử lý các thay đổi cần thiết khi đóng chi tiết máy in
+    console.log("Chi tiết máy in đã được đóng");
+
+    // Đóng chi tiết máy in
+    handleClose();
+  };
+
+  const handleEnableConfirm = (confirmed) => {
+    // Xử lý khi xác nhận Enable hoặc hủy bỏ
+    setEnableDialogOpen(false);
+
+    if (confirmed) {
+      // Thực hiện cập nhật trạng thái máy in thành Online
+      const updatedPrinterInfo = { ...printer, status: 'Online' };
+      editPrinter(updatedPrinterInfo);
+    }
+  };
+  
   return (
     <Dialog open={isOpen} onClose={handleClose}>
       <DialogTitle sx={{ textAlign: 'center' }}>THÔNG TIN MÁY IN</DialogTitle>
@@ -55,12 +76,13 @@ const Detailprinter = ({ printer, isOpen, handleClose }) => {
               <Grid item md={6}>
                 <Typography variant="h6">{printer.name}</Typography>
                 <Typography color="text.secondary">ID: {printer.id}</Typography>
-                <Typography color="text.secondary">Hãng: {printer.brand}</Typography>
-                <Typography color="text.secondary">Mẫu máy in: {printer.type}</Typography>
+                <Typography color="text.secondary">Mẫu máy in: {printer.brand}</Typography>
                 <Typography color="text.secondary">Cơ sở: {printer.location}</Typography>
                 <Typography color="text.secondary">Tòa: {printer.building}</Typography>
                 <Typography color="text.secondary">Phòng: {printer.room}</Typography>
-                <Typography color="text.secondary">Trạng thái: {printer.status}</Typography>
+                {printer.status !== null && printer.status !== undefined && (
+                  <Typography color="text.secondary">Trạng thái: {printer.status}</Typography>
+                )}
               </Grid>
             </Grid>
           </>
@@ -79,17 +101,25 @@ const Detailprinter = ({ printer, isOpen, handleClose }) => {
             </Button>
           </Box>
       </DialogActions>
-        <UpdateDialog 
+        <UpdateDialog
           printer={printer}
           isOpen={updateDialogOpen}
-           handleClose={() => setUpdateDialogOpen(false)} 
-           />
+          handleClose={() => {
+            setUpdateDialogOpen(false);
+            handleCloseDetailprinter(); // Gọi hàm đóng từ Detailprinter khi đóng UpdateDialog
+          }}
+        />
 
         {/* Dialog vô hiệu hóa */}
-        <DisableDialog isOpen={disableDialogOpen} handleClose={() => setDisableDialogOpen(false)} />
+        <DisableDialog 
+          isOpen={disableDialogOpen} handleClose={() => setDisableDialogOpen(false)} />
 
         {/* Dialog kích hoạt */}
-        <EnableDialog isOpen={enableDialogOpen} handleClose={() => setEnableDialogOpen(false)} />
+        <EnableDialog
+         isOpen={enableDialogOpen} 
+         handleClose={() => setEnableDialogOpen(false)}
+         handleEnable={handleEnableConfirm}
+          />
     </Dialog>
   );
 };

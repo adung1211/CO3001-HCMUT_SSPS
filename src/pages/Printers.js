@@ -70,9 +70,6 @@ export default function Printers() {
               Add
             </Button>
 
-            <Button startIcon={<Remove />} variant="contained" color="error" sx={sharedButtonStyle} >
-              Remove
-            </Button>
           </Box>
 
           <Box sx={{ display: "flex", alignItems: "center" }}>
