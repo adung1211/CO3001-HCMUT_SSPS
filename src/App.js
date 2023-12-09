@@ -10,30 +10,39 @@ import Printers from "./pages/Printers";
 import Papers from "./pages/Printers";
 import ChoosePrinter from "./pages/ChoosePrinter";
 import Bill from "./pages/Bill";
+import InputNumber from "./pages/InputNumber";
+import Method from "./pages/Method";
+import PaperBill from "./pages/PaperBill";
 
 import UserProvider from "./components/UserContext";
 import { PrintProvider } from "./components/PrintContext";
+import HistoryProvider from "./components/HistoryContext";
 
 export default function App() {
   return (
-    <PrintProvider>
-    <UserProvider>
-      <HashRouter>
-        <Routes>
-          <Route path="/" exact element={<Home />} />
-          <Route path="/home" exact element={<Home />} />
-          <Route path="/login" exact element={<Login />} />
-          <Route path="/print" exact element={<Print />} />
-          <Route path="/properties" exact element={<Properties />} />
-          <Route path="/buy" exact element={<Buy />} />
-          <Route path="/history" exact element={<History />} />
-          <Route path="/printers" exact element={<Printers />} />
-          <Route path="/papers" exact element={<Papers />} />
-          <Route path="/chooseprinter" exact element={<ChoosePrinter />} />
-          <Route path="/bill" exact element={<Bill/>} />
-        </Routes>
-      </HashRouter>
-    </UserProvider>
-    </PrintProvider>
+    <HistoryProvider>
+      <PrintProvider>
+        <UserProvider>
+          <HashRouter>
+            <Routes>
+              <Route path="/" exact element={<Home />} />
+              <Route path="/home" exact element={<Home />} />
+              <Route path="/login" exact element={<Login />} />
+              <Route path="/print" exact element={<Print />} />
+              <Route path="/properties" exact element={<Properties />} />
+              <Route path="/buy" exact element={<Buy />} />
+              <Route path="/history" exact element={<History />} />
+              <Route path="/printers" exact element={<Printers />} />
+              <Route path="/papers" exact element={<Papers />} />
+              <Route path="/chooseprinter" exact element={<ChoosePrinter />} />
+              <Route path="/bill" exact element={<Bill />} />
+              <Route path="/inputnum" exact element={<InputNumber />} />
+              <Route path="/method" exact element={<Method />} />
+              <Route path="/paperbill" exact element={<PaperBill />} />
+            </Routes>
+          </HashRouter>
+        </UserProvider>
+      </PrintProvider>
+    </HistoryProvider>
   );
 }

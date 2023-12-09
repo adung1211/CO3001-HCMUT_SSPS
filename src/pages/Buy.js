@@ -19,10 +19,11 @@ export default function Buy() {
         display="flex"
         flexDirection={"column"}
         justifyContent="flex-start"
-        alignItems="center"
+        alignItems="stretch"
         minHeight="98vh"
         sx={{
           bgcolor: "#F4F8FF",
+          padding: 5
         }}
       >
         <Box
@@ -33,14 +34,10 @@ export default function Buy() {
         sx={{
           marginLeft: 10, // Đặt lề trái cho box con
           marginRight: 10, // Đặt lề phải cho box con
-          width:1000,
           bgcolor: "#F4F8FF"
         }}
         >
           <Button
-            display="flex"
-            flexDirection={"column"}
-            justifyContent="flex-start"
             onClick = {onGroupContainer1Click}
             sx={{
               mt: 10,

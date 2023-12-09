@@ -21,12 +21,14 @@ import Select from "@mui/material/Select";
 import MenuBar from "../components/MenuBar";
 
 import { usePrintContext } from "../components/PrintContext";
+import { useContext } from "react";
+import { HistoryContext } from "../components/HistoryContext";
 
 const DefaultList = [
   {
     id: 1,
     name: "Canon PIXMA MG3620",
-    fac: "Lý Thường Kiệt",
+    fac: "LTK",
     build: "A2",
     room: "201",
     state: "Sẵn sàng",
@@ -42,7 +44,7 @@ const DefaultList = [
   {
     id: 3,
     name: "Brother HLL2380DW",
-    fac: "Lý Thường Kiệt",
+    fac: "LTK",
     build: "A2",
     room: "201",
     state: "Không sẵn sàng",
@@ -50,7 +52,7 @@ const DefaultList = [
   {
     id: 4,
     name: "Epson EcoTank ET4760",
-    fac: "Lý Thường Kiệt",
+    fac: "LTK",
     build: "C4",
     room: "212",
     state: "Sẵn sàng",
@@ -69,12 +71,12 @@ const DefaultList = [
     fac: "Dĩ An",
     build: "H6",
     room: "307",
-    state: "Sẵn sàng",
+    state: "Không sẵn sàng",
   },
   {
     id: 7,
     name: "Brother HLL2380DW",
-    fac: "Lý Thường Kiệt",
+    fac: "LTK",
     build: "B3",
     room: "102",
     state: "Sẵn sàng",
@@ -82,13 +84,85 @@ const DefaultList = [
   {
     id: 8,
     name: "Brother HLL2380DW",
-    fac: "Lý Thường Kiệt",
+    fac: "LTK",
     build: "B3",
     room: "102",
     state: "Không sẵn sàng",
   },
   {
     id: 9,
+    name: "Xerox Phaser 6510DN",
+    fac: "Dĩ An",
+    build: "H3",
+    room: "107",
+    state: "Không sẵn sàng",
+  },
+  {
+    id: 10,
+    name: "Canon PIXMA MG3620",
+    fac: "LTK",
+    build: "A2",
+    room: "201",
+    state: "Sẵn sàng",
+  },
+  {
+    id: 11,
+    name: "Brother HLL2380DW",
+    fac: "LTK",
+    build: "A2",
+    room: "201",
+    state: "Sẵn sàng",
+  },
+  {
+    id: 12,
+    name: "Brother HLL2380DW",
+    fac: "LTK",
+    build: "C4",
+    room: "212",
+    state: "Không sẵn sàng",
+  },
+  {
+    id: 13,
+    name: "Epson EcoTank ET4760",
+    fac: "LTK",
+    build: "C4",
+    room: "212",
+    state: "Sẵn sàng",
+  },
+  {
+    id: 14,
+    name: "Samsung Xpress C430W",
+    fac: "Dĩ An",
+    build: "H2",
+    room: "307",
+    state: "Sẵn sàng",
+  },
+  {
+    id: 15,
+    name: "Brother HLL2380DW",
+    fac: "Dĩ An",
+    build: "H2",
+    room: "307",
+    state: "Sẵn sàng",
+  },
+  {
+    id: 16,
+    name: "Brother HLL2380DW",
+    fac: "LTK",
+    build: "B3",
+    room: "102",
+    state: "Sẵn sàng",
+  },
+  {
+    id: 17,
+    name: "Brother HLL2380DW",
+    fac: "LTK",
+    build: "A2",
+    room: "201",
+    state: "Không sẵn sàng",
+  },
+  {
+    id: 18,
     name: "Xerox Phaser 6510DN",
     fac: "Dĩ An",
     build: "H3",
@@ -103,14 +177,20 @@ export default function ChoosePrinter() {
   const [PrinterList, setPrinterList] = React.useState(DefaultList);
   const [PrinterListFac, setPrinterListFac] = React.useState(DefaultList);
   const [choosen, setChoosen] = React.useState("");
-  const { updatePrintingInfo } = usePrintContext();
+  const { printingInfo, updatePrintingInfo } = usePrintContext();
 
+  const currentDate = new Date();
+  const day = currentDate.getDate();
+  const month = currentDate.getMonth() + 1;
+  const year = currentDate.getFullYear();
   const handleChoose = (val) => {
     setChoosen(val.id);
     updatePrintingInfo({
       printerId: val.id,
       printerName: val.name,
-      printerLocation: `${val.fac} ${val.build}-${val.room}`,
+      printerLocation: `${val.fac} ${val.build} - ${val.room}`,
+      printID: String(Math.floor(100000 + Math.random() * 900000)),
+      printDate: `${day}/${month}/${year}`,
     });
   };
   const handleChangeFac = (event) => {
@@ -148,12 +228,23 @@ export default function ChoosePrinter() {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const { updateHistory } = useContext(HistoryContext);
+
   const handleOpen = () => {
     if (choosen === "") {
       setOpenError(true);
     } else {
       setOpen(true);
       setTimeout(() => {
+        updateHistory({
+          fileName: printingInfo.fileName,
+          printID: printingInfo.printID,
+          printDate: printingInfo.printDate,
+          printPages: printingInfo.printPages,
+          location: printingInfo.printerLocation,
+          paperSize: printingInfo.paperSize,
+        });
         navigate("/bill");
       }, 2000);
     }
@@ -254,7 +345,7 @@ export default function ChoosePrinter() {
           <InputLabel>Cơ sở</InputLabel>
           <Select value={filterFac} label="Cơ sở" onChange={handleChangeFac}>
             <MenuItem value="">None</MenuItem>
-            <MenuItem value={"Lý Thường Kiệt"}>Lý Thường Kiệt</MenuItem>
+            <MenuItem value={"LTK"}>LTK</MenuItem>
             <MenuItem value={"Dĩ An"}>Dĩ An</MenuItem>
           </Select>
         </FormControl>
@@ -276,7 +367,7 @@ export default function ChoosePrinter() {
             </Select>
           </FormControl>
         )}
-        {filterFac === "Lý Thường Kiệt" && (
+        {filterFac === "LTK" && (
           <FormControl sx={{ m: 1, minWidth: 120 }}>
             <InputLabel>Toà</InputLabel>
             <Select
