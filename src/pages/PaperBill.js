@@ -12,11 +12,13 @@ import CheckIcon from '@mui/icons-material/Check';
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from '@mui/material';
-
+import { useNumberContext } from '../components/NumberContext';
 
 export default function PaperBill() {
     const navigate = useNavigate();
   
+    const { number1, number2 } = useNumberContext();
+
     const onClick = useCallback(() => {
       navigate("/home");
     }, [navigate]);
@@ -101,9 +103,9 @@ export default function PaperBill() {
 
     const tableData = [
         { dataType: 'Thời gian', data: ClockComponent() },
-        { dataType: 'Số tờ', data: 2 },
+        { dataType: 'Số tờ', data: number1 },
         { dataType: 'Đơn giá', data: 2000 },
-        { dataType: 'Thành tiền', data: 4000 },
+        { dataType: 'Thành tiền', data: number2 },
     ];
 
     return (
@@ -144,6 +146,9 @@ export default function PaperBill() {
                 Quay về trang chủ
             </Button>
         </Box>
+        <div>
+      <p>Received numbers: {number1}, {number2}</p>
+    </div>
     </div>
     );
 };
