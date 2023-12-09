@@ -30,8 +30,7 @@ const style = {
   };
   
 
-const PrinterCard = ({ printer, onSelect }) => {
-    
+  const PrinterCard = ({ printer, onSelect, onRemove }) => {
   return (
     <Card onClick={() => onSelect(printer)} sx={{ position: "relative", padding: "15px" }}>
       <CardActionArea>
@@ -50,23 +49,23 @@ const PrinterCard = ({ printer, onSelect }) => {
 
           <Grid item xs={12} md={7}>
             <CardContent>
-              <Typography variant="h6">{printer.brand}</Typography>
+              <Typography variant="h6">{printer.name}</Typography>
               <Typography color="text.secondary">ID: {printer.id}</Typography>
-              <Typography color="text.secondary">Location: {printer.location}</Typography>
-              <Typography color="text.secondary">Status: {printer.status}</Typography>
+              <Typography color="text.secondary">Cơ sở: {printer.location}</Typography>
+              <Typography color="text.secondary">Tòa: {printer.building}</Typography>
+              <Typography color="text.secondary">Phòng: {printer.room}</Typography>
             </CardContent>
             <Grid container justifyContent="flex-end">
-                <Button color="warning" variant="contained" onClick={() => onSelect(printer)}>
-                    Select
-                </Button>
+                  <Button color="warning" variant="contained" >
+                Select
+              </Button>
             </Grid>  
            </Grid>
         </Grid>
-        <Box             sx={statusButtonStyle}> 
+        <Box sx={statusButtonStyle}> 
             <Button
             startIcon={ <CircleSharp /> }
             color={printer.status === "Online" ? "success" : "error"}
-
             />
         </Box>
         

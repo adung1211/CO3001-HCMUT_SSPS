@@ -3,29 +3,15 @@ import MenuBar from "../components/MenuBar";
 import {
   Box,
   Typography,
-  Card,
-  CardContent,
   Button,
   TextField,
   Grid,
-  CardActionArea,
 } from "@mui/material";
-import { Search, FilterList, Add, Remove, CheckCircle, HighlightOff } from "@mui/icons-material";
+import { Search, FilterList, Add, Remove} from "@mui/icons-material";
 import Detailprinter from '../components/Detailprinter';
 import PrinterCard from "../components/PrinterCard";
-
-const printers = [
-  { id: 1, brand: "Printer A", location: "Room 101", status: "Online" },
-  { id: 2, brand: "Printer B", location: "Room 102", status: "Offline" },
-  { id: 3, brand: "Printer C", location: "Room 103", status: "Online" },
-  { id: 1, brand: "Printer A", location: "Room 101", status: "Online" },
-  { id: 2, brand: "Printer B", location: "Room 102", status: "Offline" },
-  { id: 3, brand: "Printer C", location: "Room 103", status: "Online" },
-  { id: 1, brand: "Printer A", location: "Room 101", status: "Online" },
-  { id: 2, brand: "Printer B", location: "Room 102", status: "Offline" },
-  { id: 3, brand: "Printer C", location: "Room 103", status: "Online" },
-  // ...Thêm thông tin của các máy in khác
-];
+import AddPrinterDialog from "../components/AddPrinter";
+import { usePrinterListContext, PrinterListProvider } from '../components/PrinterListContext';
 
 const sharedButtonStyle = {
   backgroundColor: 'your-custom-color',
@@ -39,13 +25,14 @@ const sharedButtonStyle = {
 };
 
 
-
-
-
-
 export default function Printers() {
+
+  const { printers, addPrinter, removePrinter, editPrinter } = usePrinterListContext();
   const [selectedPrinter, setSelectedPrinter] = useState(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isDialogOpenAddbuttom, setIsDialogOpenAddbuttom] = useState(false);
+
+
 
   const handleSelectPrinter = (printer) => {
     setSelectedPrinter(printer);
@@ -54,7 +41,14 @@ export default function Printers() {
 
   const handleCloseDialog = () => {
     setIsDialogOpen(false);
+    setIsDialogOpenAddbuttom(false);
   };
+  const handleAddPrinter = (newPrinter) => {
+    addPrinter(newPrinter);
+  };
+
+  
+ 
   return (
     <div>
       <MenuBar />
@@ -72,11 +66,11 @@ export default function Printers() {
               Filter
             </Button>
 
-            <Button startIcon={<Add />} variant="contained" color="success" sx={sharedButtonStyle}>
+            <Button startIcon={<Add />} variant="contained" color="success" sx={sharedButtonStyle} onClick={() => setIsDialogOpenAddbuttom(true)}>
               Add
             </Button>
 
-            <Button startIcon={<Remove />} variant="contained" color="error" sx={sharedButtonStyle}>
+            <Button startIcon={<Remove />} variant="contained" color="error" sx={sharedButtonStyle} >
               Remove
             </Button>
           </Box>
@@ -102,13 +96,19 @@ export default function Printers() {
             {printers.map((printer) => (
               <Grid item key={printer.id} xs-none md={4} lg={3} sm={6}  >
                 <PrinterCard
-                printer={printer}
-                onSelect={handleSelectPrinter}
-              />
+                 printer={printer}
+                 onSelect={handleSelectPrinter}
+                />
               </Grid>
             ))}
           </Grid>
         </Box>
+
+        <AddPrinterDialog
+          isOpen={isDialogOpenAddbuttom}
+          handleClose={handleCloseDialog}
+          handleAddPrinter={handleAddPrinter}
+        />
         <Detailprinter
           printer={selectedPrinter}
           isOpen={isDialogOpen}
