@@ -38,9 +38,10 @@ const UpdateDialog = ({ printer, isOpen, handleClose}) => {
 
   return (
     <Dialog open={isOpen} onClose={handleClose} >
-      <DialogTitle sx={{ textAlign: 'center' , paddingTop: "60px", fontSize: "20px", fontWeight: "600", color: "#1B3764"}} >THÊM MÁY IN</DialogTitle>
+      <DialogTitle sx={{ textAlign: 'center' , paddingTop: "60px", fontSize: "20px", fontWeight: "600", color: "#1B3764"}} >CẬP NHẬT THÔNG TIN</DialogTitle>
       <DialogContent sx={{ padding: "10px 35px" }}>
         <Box sx={{ padding: "15px" }}>
+          <Typography>ID: {printer.id}</Typography>
           <Box>
             <Typography sx={{color: "#666", fontSize: "16px", fontWeight: "600"}}>Tên máy in</Typography>
             <TextField

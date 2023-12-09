@@ -13,6 +13,7 @@ import {
 import UpdateDialog from "../components/UpdateDialog";
 import DisableDialog from "../components/DisableDialog";
 import EnableDialog from "../components/EnableDialog";
+import { usePrinterListContext, PrinterListProvider } from '../components/PrinterListContext';
 
 const sharedButtonStyle = {
   backgroundColor: 'your-custom-color',
@@ -26,6 +27,7 @@ const sharedButtonStyle = {
 };
 
 const Detailprinter = ({ printer, isOpen, handleClose }) => {
+  const { printers, editPrinter } = usePrinterListContext();
   const [updateDialogOpen, setUpdateDialogOpen] = useState(false);
   const [disableDialogOpen, setDisableDialogOpen] = useState(false);
   const [enableDialogOpen, setEnableDialogOpen] = useState(false);
@@ -36,6 +38,18 @@ const Detailprinter = ({ printer, isOpen, handleClose }) => {
     // Đóng chi tiết máy in
     handleClose();
   };
+
+  const handleEnableConfirm = (confirmed) => {
+    // Xử lý khi xác nhận Enable hoặc hủy bỏ
+    setEnableDialogOpen(false);
+
+    if (confirmed) {
+      // Thực hiện cập nhật trạng thái máy in thành Online
+      const updatedPrinterInfo = { ...printer, status: 'Online' };
+      editPrinter(updatedPrinterInfo);
+    }
+  };
+  
   return (
     <Dialog open={isOpen} onClose={handleClose}>
       <DialogTitle sx={{ textAlign: 'center' }}>THÔNG TIN MÁY IN</DialogTitle>
@@ -101,7 +115,11 @@ const Detailprinter = ({ printer, isOpen, handleClose }) => {
           isOpen={disableDialogOpen} handleClose={() => setDisableDialogOpen(false)} />
 
         {/* Dialog kích hoạt */}
-        <EnableDialog isOpen={enableDialogOpen} handleClose={() => setEnableDialogOpen(false)} />
+        <EnableDialog
+         isOpen={enableDialogOpen} 
+         handleClose={() => setEnableDialogOpen(false)}
+         handleEnable={handleEnableConfirm}
+          />
     </Dialog>
   );
 };
