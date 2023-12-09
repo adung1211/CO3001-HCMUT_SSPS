@@ -7,7 +7,6 @@ const UpdateDialog = ({ printer, isOpen, handleClose }) => {
   const handleChange = (event) => {
     setlocation(event.target.value);
   };
-
   return (
     <Dialog open={isOpen} onClose={handleClose} >
       <DialogTitle sx={{ textAlign: 'center' , paddingTop: "60px", fontSize: "20px", fontWeight: "600", color: "#1B3764"}} >THÊM MÁY IN</DialogTitle>
@@ -53,7 +52,7 @@ const UpdateDialog = ({ printer, isOpen, handleClose }) => {
               sx={{marginBottom: "20px"}}
               id="outlined-helperText"
               fullWidth
-               
+              defaultValue={printer.type}
               placeholder="Type here"
               size="small"
               InputProps={{
@@ -74,6 +73,8 @@ const UpdateDialog = ({ printer, isOpen, handleClose }) => {
                     value={location}
                     onChange={handleChange}
                     size="small"
+                    
+                    defaultValue={1}
               MenuItem={{
                 sx: {
                   fontSize: '14px', // Set your desired font size
@@ -88,12 +89,12 @@ const UpdateDialog = ({ printer, isOpen, handleClose }) => {
             </Grid>
             <Grid item xs={3}>
             <Box>
-            <Typography sx={{color: "#666",  fontSize: "16px", fontWeight: "600"}}>Tên máy in</Typography>
+            <Typography sx={{color: "#666",  fontSize: "16px", fontWeight: "600"}}>Tòa</Typography>
             <TextField
               sx={{marginBottom: "15px"}}
               id="outlined-helperText"
               fullWidth
-               
+              defaultValue={printer.building}
               placeholder="Type here"
               size="small"
               InputProps={{
@@ -107,12 +108,12 @@ const UpdateDialog = ({ printer, isOpen, handleClose }) => {
 
             <Grid item xs={3}>
             <Box>
-            <Typography sx={{color: "#666",  fontSize: "16px", fontWeight: "600"}}>Tên máy in</Typography>
+            <Typography sx={{color: "#666",  fontSize: "16px", fontWeight: "600"}}>Phòng</Typography>
             <TextField
               sx={{marginBottom: "15px"}}
               id="outlined-helperText"
               fullWidth
-               
+              defaultValue={printer.room}
               placeholder="Type here"
               size="small"
               InputProps={{
