@@ -28,10 +28,24 @@ export default function Print() {
   const [showContinueButton, setShowContinueButton] = useState(false);
   const { printingInfo, updatePrintingInfo } = usePrintContext();
   const navigate = useNavigate();
+
+  
+
   const handleFileSelect = (file) => {
-    console.log("Selected File Name:", file.name);
-    updatePrintingInfo({ fileName: file.name });
-    setShowContinueButton(true);
+    const allowedTypes = [
+      "application/pdf",
+      "application/msword",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "application/vnd.ms-powerpoint",
+      "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+      "text/plain",
+    ];
+    if (allowedTypes.includes(file.type)) {
+      updatePrintingInfo({ fileName: file.name });
+      setShowContinueButton(true);
+    } else {
+      alert("Invalid file type. Please select a document file.");
+    }
   };
 
   const handleFileDragEnter = (event) => {

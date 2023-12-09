@@ -61,6 +61,7 @@ export default function Login() {
             color: "primary",
             fontSize: "18px",
             textTransform: "none",
+            width: 300
           }}
           onClick={() => {
             logAsStudent();
@@ -77,13 +78,14 @@ export default function Login() {
             color: "primary",
             fontSize: "18px",
             textTransform: "none",
+            width: 300
           }}
           onClick={() => {
             logAsSPSO();
             navigate("/home");
           }}
         >
-          Đăng nhập dành cho giáo viên
+          Đăng nhập dành cho SPSO
         </Button>
       </Box>
     </Box>
