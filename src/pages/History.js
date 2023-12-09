@@ -16,6 +16,12 @@ const columns = [
   },
   {
     field: "printID",
+    headerName: "Mã in",
+    width: 150,
+    headerClassName: "super-app-theme--header",
+  },
+  {
+    field: "printerID",
     headerName: "ID Máy in",
     width: 150,
     headerClassName: "super-app-theme--header",

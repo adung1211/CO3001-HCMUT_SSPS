@@ -244,6 +244,7 @@ export default function ChoosePrinter() {
           printPages: printingInfo.printPages,
           location: printingInfo.printerLocation,
           paperSize: printingInfo.paperSize,
+          printerID: printingInfo.printerId,
         });
         navigate("/bill");
       }, 2000);
