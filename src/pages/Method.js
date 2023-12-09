@@ -22,11 +22,27 @@ export default function Method() {
       display="flex"
       flexDirection={"column"}
       minHeight="98vh"
+      alignItems="center"
       sx={{
         bgcolor: "#F4F8FF",
         padding: 5
       }}
     >
+      <Box
+      display="flex"
+      flexDirection={"column"}
+      justifyContent="flex-start"
+      alignItems="stretch"
+      sx={{
+        marginLeft: 10, // Đặt lề trái cho box con
+        marginRight: 10, // Đặt lề phải cho box con
+        bgcolor: "#F4F8FF",
+        width: 650,
+        bgcolor: "#FFFFFF",
+        borderRadius: 10,
+        border: '1px solid #1488DB',
+        padding: 5
+      }}>
       <Typography
       sx={{
         color: "#1B3764",
@@ -173,6 +189,7 @@ export default function Method() {
             </Grid>
         </Grid>
       </Button>
+      </Box>
     </Box>
   </div>
   )
