@@ -12,6 +12,7 @@ import { useNumberContext } from '../components/NumberContext';
 export default function InputNumber() {
     const [numberValue, setNumberValue] = useState('');
     const [price, setPrice] = useState(0);
+    const [buttonSubmitt, setButtonSubmitt] = useState(false);
     const multiplier = 2000;
 
     const calc = () => {
@@ -38,6 +39,7 @@ export default function InputNumber() {
     const handleSubmit = (event) => {
         // Xử lý giá trị số ở đây
         updateNumbers(numberValue, price);
+        setButtonSubmitt(true);
         event.preventDefault();
         console.log('Submitted number:', numberValue);
     };
@@ -113,6 +115,7 @@ export default function InputNumber() {
                         variant="contained"
                         color="primary"
                         onClick={handleSubmit}
+                        disabled={price===0}
                         sx={{
                         mt: 5,
                         fontSize: 16
@@ -197,7 +200,7 @@ export default function InputNumber() {
                 variant="contained"
                 color="primary"
                 onClick={confirmClick}
-                disabled={price===0}
+                disabled={!buttonSubmitt || price===0}
                 sx={{
                 mt: 5,
                 fontSize: 16
