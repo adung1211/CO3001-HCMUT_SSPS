@@ -23,159 +23,15 @@ import MenuBar from "../components/MenuBar";
 import { usePrintContext } from "../components/PrintContext";
 import { useContext } from "react";
 import { HistoryContext } from "../components/HistoryContext";
+import { usePrinterListContext } from "../components/PrinterListContext";
 
-const DefaultList = [
-  {
-    id: 1,
-    name: "Canon PIXMA MG3620",
-    fac: "LTK",
-    build: "A2",
-    room: "201",
-    state: "Sẵn sàng",
-  },
-  {
-    id: 2,
-    name: "Brother HLL2380DW",
-    fac: "Dĩ An",
-    build: "H1",
-    room: "305",
-    state: "Sẵn sàng",
-  },
-  {
-    id: 3,
-    name: "Brother HLL2380DW",
-    fac: "LTK",
-    build: "A2",
-    room: "201",
-    state: "Không sẵn sàng",
-  },
-  {
-    id: 4,
-    name: "Epson EcoTank ET4760",
-    fac: "LTK",
-    build: "C4",
-    room: "212",
-    state: "Sẵn sàng",
-  },
-  {
-    id: 5,
-    name: "Samsung Xpress C430W",
-    fac: "Dĩ An",
-    build: "H1",
-    room: "602",
-    state: "Sẵn sàng",
-  },
-  {
-    id: 6,
-    name: "Brother HLL2380DW",
-    fac: "Dĩ An",
-    build: "H6",
-    room: "307",
-    state: "Không sẵn sàng",
-  },
-  {
-    id: 7,
-    name: "Brother HLL2380DW",
-    fac: "LTK",
-    build: "B3",
-    room: "102",
-    state: "Sẵn sàng",
-  },
-  {
-    id: 8,
-    name: "Brother HLL2380DW",
-    fac: "LTK",
-    build: "B3",
-    room: "102",
-    state: "Không sẵn sàng",
-  },
-  {
-    id: 9,
-    name: "Xerox Phaser 6510DN",
-    fac: "Dĩ An",
-    build: "H3",
-    room: "107",
-    state: "Không sẵn sàng",
-  },
-  {
-    id: 10,
-    name: "Canon PIXMA MG3620",
-    fac: "LTK",
-    build: "A2",
-    room: "201",
-    state: "Sẵn sàng",
-  },
-  {
-    id: 11,
-    name: "Brother HLL2380DW",
-    fac: "LTK",
-    build: "A2",
-    room: "201",
-    state: "Sẵn sàng",
-  },
-  {
-    id: 12,
-    name: "Brother HLL2380DW",
-    fac: "LTK",
-    build: "C4",
-    room: "212",
-    state: "Không sẵn sàng",
-  },
-  {
-    id: 13,
-    name: "Epson EcoTank ET4760",
-    fac: "LTK",
-    build: "C4",
-    room: "212",
-    state: "Sẵn sàng",
-  },
-  {
-    id: 14,
-    name: "Samsung Xpress C430W",
-    fac: "Dĩ An",
-    build: "H2",
-    room: "307",
-    state: "Sẵn sàng",
-  },
-  {
-    id: 15,
-    name: "Brother HLL2380DW",
-    fac: "Dĩ An",
-    build: "H2",
-    room: "307",
-    state: "Sẵn sàng",
-  },
-  {
-    id: 16,
-    name: "Brother HLL2380DW",
-    fac: "LTK",
-    build: "B3",
-    room: "102",
-    state: "Sẵn sàng",
-  },
-  {
-    id: 17,
-    name: "Brother HLL2380DW",
-    fac: "LTK",
-    build: "A2",
-    room: "201",
-    state: "Không sẵn sàng",
-  },
-  {
-    id: 18,
-    name: "Xerox Phaser 6510DN",
-    fac: "Dĩ An",
-    build: "H3",
-    room: "107",
-    state: "Sẵn sàng",
-  },
-];
 export default function ChoosePrinter() {
   const navigate = useNavigate();
+  const { printers } = usePrinterListContext();
   const [filterFac, setFilterFac] = React.useState("");
   const [filterBuild, setFilterBuild] = React.useState("");
-  const [PrinterList, setPrinterList] = React.useState(DefaultList);
-  const [PrinterListFac, setPrinterListFac] = React.useState(DefaultList);
+  const [PrinterList, setPrinterList] = React.useState(printers);
+  const [PrinterListFac, setPrinterListFac] = React.useState(printers);
   const [choosen, setChoosen] = React.useState("");
   const { printingInfo, updatePrintingInfo } = usePrintContext();
 
@@ -196,15 +52,15 @@ export default function ChoosePrinter() {
   const handleChangeFac = (event) => {
     const selectedFac = event.target.value;
 
-    const filteredPrinters = DefaultList.filter(
+    const filteredPrinters = printers.filter(
       (printer) => printer.fac === selectedFac
     );
     setFilterFac(selectedFac);
     setPrinterList(filteredPrinters);
     setPrinterListFac(filteredPrinters);
     if (selectedFac === "") {
-      setPrinterList(DefaultList);
-      setPrinterListFac(DefaultList);
+      setPrinterList(printers);
+      setPrinterListFac(printers);
     }
     setFilterBuild("");
   };
@@ -270,7 +126,7 @@ export default function ChoosePrinter() {
               <CardMedia
                 component="img"
                 sx={{ width: 151 }}
-                image="https://i.imgur.com/94qk77J.jpg"
+                image="https://cdn.iconscout.com/icon/free/png-256/free-photocopier-machine-1125087.png"
                 alt="May in"
               />
               <Box sx={{ display: "flex", flexDirection: "column" }}>
