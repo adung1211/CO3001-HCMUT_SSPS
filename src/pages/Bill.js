@@ -13,9 +13,6 @@ export default function Bill() {
   const { printingInfo } = usePrintContext();
   const currentDate = new Date();
 
-  const day = currentDate.getDate();
-  const month = currentDate.getMonth() + 1;
-  const year = currentDate.getFullYear();
   const navigate = useNavigate();
   const gridItemStyle = {
     borderBottom: "1px solid #000000",
@@ -73,7 +70,7 @@ export default function Bill() {
               marginTop: 3,
             }}
           >
-            Mã In: {Math.floor(100000 + Math.random() * 900000)}
+            Mã In: {printingInfo.printID}
           </Typography>
           <Grid container spacing={2} sx={{ width: 600, marginTop: 2 }}>
             <Grid item xs={6} style={gridItemStyle}>
@@ -117,12 +114,12 @@ export default function Bill() {
                 textAlign="right"
                 sx={{ color: "#1b3764" }}
               >
-                {day}/{month}/{year}
+                {printingInfo.printDate}
               </Typography>
             </Grid>
             <Grid item xs={6} style={gridItemStyle}>
               <Typography variant="h6" sx={{ color: "#1b3764" }}>
-                Loại giấy:
+                Số tờ in:
               </Typography>
             </Grid>
             <Grid item xs={6} style={gridItemStyle}>
@@ -131,7 +128,7 @@ export default function Bill() {
                 textAlign="right"
                 sx={{ color: "#1b3764" }}
               >
-                {printingInfo.paperSize}
+                {printingInfo.printPages} tờ {printingInfo.paperSize}
               </Typography>
             </Grid>
             <Grid item xs={6} style={gridItemStyle}>

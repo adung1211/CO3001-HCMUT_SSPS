@@ -24,6 +24,9 @@ export default function Properties() {
   };
   const navigate = useNavigate();
   const handleContinue = () => {
+    updatePrintingInfo({
+      printPages: String(Math.floor(Math.random() * 100) + 1),
+    });
     navigate("/chooseprinter");
   };
   const handleCancel = () => {
