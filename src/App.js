@@ -18,6 +18,7 @@ import UserProvider from "./components/UserContext";
 import { PrintProvider } from "./components/PrintContext";
 import HistoryProvider from "./components/HistoryContext";
 import PrinterListProvider from "./components/PrinterListContext"
+import { NumberProvider } from './components/NumberContext';
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
       <PrinterListProvider>
         <PrintProvider>
           <UserProvider>
+          <NumberProvider>
             <HashRouter>
               <Routes>
                 <Route path="/" exact element={<Home />} />
@@ -43,6 +45,7 @@ export default function App() {
                 <Route path="/paperbill" exact element={<PaperBill />} />
               </Routes>
             </HashRouter>
+            </NumberProvider>
           </UserProvider>
         </PrintProvider>
       </PrinterListProvider>
