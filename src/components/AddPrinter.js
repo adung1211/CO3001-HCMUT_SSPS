@@ -1,7 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField , Box, Grid, InputLabel, MenuItem, FormControl, Select, Typography} from "@mui/material";
 
-const UpdateDialog = ({ printer, isOpen, handleClose }) => {
+const AddPrinterDialog = ({ isOpen, handleClose, handleAddPrinter }) => {
+  const [newPrinter, setNewPrinter] = useState({
+    id: "",
+    brand: "",
+    location: "",
+    status: "Offline",
+  });
+
+  const handleInputChange = (field, value) => {
+    setNewPrinter({ ...newPrinter, [field]: value });
+  };
+
+  const handleAddClick = () => {
+    handleAddPrinter(newPrinter);
+    setNewPrinter({
+      id: "",
+      brand: "",
+      location: "",
+      status: "Offline",
+    });
+    handleClose();
+  };
+
   const [location, setlocation] = React.useState('');
 
   const handleChange = (event) => {
@@ -19,7 +41,6 @@ const UpdateDialog = ({ printer, isOpen, handleClose }) => {
               sx={{marginBottom: "15px"}}
               id="outlined-helperText"
               fullWidth
-              defaultValue={printer.brand}
               placeholder="Type here"
               size="small"
               InputProps={{
@@ -31,12 +52,11 @@ const UpdateDialog = ({ printer, isOpen, handleClose }) => {
           </Box>
           
           <Box>
-            <Typography sx={{color: "#666",  fontSize: "16px", fontWeight: "600"}}>Hãng</Typography>
+            <Typography sx={{color: "#666",  fontSize: "16px", fontWeight: "600"}}>Tên máy in</Typography>
             <TextField
               sx={{marginBottom: "15px"}}
               id="outlined-helperText"
               fullWidth
-              defaultValue={printer.brand}
               placeholder="Type here"
               size="small"
               InputProps={{
@@ -48,7 +68,7 @@ const UpdateDialog = ({ printer, isOpen, handleClose }) => {
           </Box>
 
           <Box>
-            <Typography sx={{color: "#666",  fontSize: "16px", fontWeight: "600"}}>Mẫu máy in</Typography>
+            <Typography sx={{color: "#666",  fontSize: "16px", fontWeight: "600"}}>Tên máy in</Typography>
             <TextField
               sx={{marginBottom: "20px"}}
               id="outlined-helperText"
@@ -80,8 +100,8 @@ const UpdateDialog = ({ printer, isOpen, handleClose }) => {
                   // You can add more styling properties here as needed
                 },}}
                   >
-                    <MenuItem value={1}>Cơ sở Lý Thường Kiệt</MenuItem>
-                    <MenuItem value={2}>Cơ sở Dĩ An</MenuItem>
+                    <MenuItem value={10}>Cơ sở Lý Thường Kiệt</MenuItem>
+                    <MenuItem value={20}>Cơ sở Dĩ An</MenuItem>
                   </Select>
                 </FormControl>
               </Box>
@@ -131,7 +151,7 @@ const UpdateDialog = ({ printer, isOpen, handleClose }) => {
         <Button onClick={handleClose} color="primary" variant="outlined">
           Cancel
         </Button>
-        <Button onClick={handleClose} color="primary" variant="contained">
+        <Button onClick={handleAddClick} color="primary" variant="contained">
           Thêm
         </Button>
       </DialogActions>
@@ -139,4 +159,4 @@ const UpdateDialog = ({ printer, isOpen, handleClose }) => {
   );
 };
 
-export default UpdateDialog;
+export default AddPrinterDialog;

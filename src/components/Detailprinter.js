@@ -53,12 +53,14 @@ const Detailprinter = ({ printer, isOpen, handleClose }) => {
               </Grid>
 
               <Grid item md={6}>
-                  <Typography variant="h6">{printer.brand}</Typography>
-                  <Typography color="text.secondary">ID: {printer.id}</Typography>
-                  <Typography color="text.secondary">
-                    Location: {printer.location}
-                  </Typography>
-                  <Typography color="text.secondary">Status: {printer.status}</Typography>
+                <Typography variant="h6">{printer.name}</Typography>
+                <Typography color="text.secondary">ID: {printer.id}</Typography>
+                <Typography color="text.secondary">Hãng: {printer.brand}</Typography>
+                <Typography color="text.secondary">Mẫu máy in: {printer.type}</Typography>
+                <Typography color="text.secondary">Cơ sở: {printer.location}</Typography>
+                <Typography color="text.secondary">Tòa: {printer.building}</Typography>
+                <Typography color="text.secondary">Phòng: {printer.room}</Typography>
+                <Typography color="text.secondary">Trạng thái: {printer.status}</Typography>
               </Grid>
             </Grid>
           </>
@@ -77,7 +79,11 @@ const Detailprinter = ({ printer, isOpen, handleClose }) => {
             </Button>
           </Box>
       </DialogActions>
-        <UpdateDialog isOpen={updateDialogOpen} handleClose={() => setUpdateDialogOpen(false)} />
+        <UpdateDialog 
+          printer={printer}
+          isOpen={updateDialogOpen}
+           handleClose={() => setUpdateDialogOpen(false)} 
+           />
 
         {/* Dialog vô hiệu hóa */}
         <DisableDialog isOpen={disableDialogOpen} handleClose={() => setDisableDialogOpen(false)} />
