@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MenuBar from "../components/MenuBar";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -7,14 +7,21 @@ import Typography from "@mui/material/Typography";
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { useNumberContext } from '../components/NumberContext';
+
 export default function InputNumber() {
-    const [numberValue, setNumberValue] = React.useState('');
+    const [numberValue, setNumberValue] = useState('');
     const [price, setPrice] = useState(0);
     const multiplier = 2000;
 
     const calc = () => {
         setPrice(numberValue * multiplier);
     };
+
+    useEffect(() => {
+        // Sử dụng useEffect để đảm bảo rằng price được cập nhật sau khi numberValue thay đổi
+        calc();
+    }, [numberValue]);
 
     const handleNumberChange = (event) => {
         const inputValue = event.target.value;
@@ -26,11 +33,13 @@ export default function InputNumber() {
 
     const navigate = useNavigate();
     
+    const { updateNumbers } = useNumberContext();
+
     const handleSubmit = (event) => {
         // Xử lý giá trị số ở đây
+        updateNumbers(numberValue, price);
         event.preventDefault();
         console.log('Submitted number:', numberValue);
-        calc();
     };
 
     const confirmClick = useCallback(() => {
@@ -97,7 +106,7 @@ export default function InputNumber() {
                             padding: '20px', // Đặt lề và độ dày của input
                             textAlign: 'center'
                         },
-                        }}  
+                        }}
                         />
                         <Button
                         type="submit"
