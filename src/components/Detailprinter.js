@@ -84,9 +84,6 @@ const Detailprinter = ({ printer, isOpen, handleClose }) => {
                 <Typography variant="h6">{printer.name}</Typography>
                 <Typography color="text.secondary">ID: {printer.id}</Typography>
                 <Typography color="text.secondary">
-                  Mẫu máy in: {printer.brand}
-                </Typography>
-                <Typography color="text.secondary">
                   Cơ sở: {printer.location}
                 </Typography>
                 <Typography color="text.secondary">
