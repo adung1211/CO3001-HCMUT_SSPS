@@ -35,13 +35,13 @@ const columns = [
   {
     field: "paperSize",
     headerName: "Loại giấy",
-    width: 150,
+    width: 100,
     headerClassName: "super-app-theme--header",
   },
   {
     field: "location",
     headerName: "Nơi in",
-    width: 150,
+    width: 200,
     headerClassName: "super-app-theme--header",
   },
   {

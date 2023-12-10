@@ -12,7 +12,7 @@ import {
   MenuItem,
   FormControl,
   Select,
-  Typography
+  Typography,
 } from "@mui/material";
 
 const AddPrinterDialog = ({ isOpen, handleClose, handleAddPrinter }) => {
@@ -22,10 +22,10 @@ const AddPrinterDialog = ({ isOpen, handleClose, handleAddPrinter }) => {
     location: "",
     building: "",
     room: "",
-    status: "Offline",
+    status: "Không sẵn sàng",
   });
 
-  const [selectedLocation, setSelectedLocation] = useState('');
+  const [selectedLocation, setSelectedLocation] = useState("");
 
   const handleInputChange = (field, value) => {
     setNewPrinter({ ...newPrinter, [field]: value });
@@ -34,7 +34,6 @@ const AddPrinterDialog = ({ isOpen, handleClose, handleAddPrinter }) => {
   const handleAddClick = () => {
     if (
       newPrinter.name &&
-      newPrinter.brand &&
       selectedLocation &&
       newPrinter.building &&
       newPrinter.room
@@ -54,9 +53,9 @@ const AddPrinterDialog = ({ isOpen, handleClose, handleAddPrinter }) => {
         brand: "",
         building: "",
         room: "",
-        status: "Offline",
+        status: "Không sẵn sàng",
       });
-      setSelectedLocation('');
+      setSelectedLocation("");
       handleClose();
     } else {
       alert("Vui lòng điền đầy đủ thông tin trước khi thêm máy in.");
@@ -71,20 +70,35 @@ const AddPrinterDialog = ({ isOpen, handleClose, handleAddPrinter }) => {
   const generatePrinterId = () => {
     // Lấy danh sách máy in từ localStorage
     const printers = JSON.parse(localStorage.getItem("printers")) || [];
-    
+
     // Nếu danh sách máy in không rỗng, lấy id của máy in cuối cùng và tăng giá trị lên 1
-    const newId = printers.length > 0 ? printers[printers.length - 1].id + 1 : 1;
-    
+    const newId =
+      printers.length > 0 ? printers[printers.length - 1].id + 1 : 1;
+
     return newId;
   };
 
   return (
-    <Dialog open={isOpen} onClose={handleClose} >
-      <DialogTitle sx={{ textAlign: 'center', paddingTop: "60px", fontSize: "20px", fontWeight: "600", color: "#1B3764" }}>THÊM MÁY IN</DialogTitle>
+    <Dialog open={isOpen} onClose={handleClose}>
+      <DialogTitle
+        sx={{
+          textAlign: "center",
+          paddingTop: "60px",
+          fontSize: "20px",
+          fontWeight: "600",
+          color: "#1B3764",
+        }}
+      >
+        THÊM MÁY IN
+      </DialogTitle>
       <DialogContent sx={{ padding: "10px 35px" }}>
         <Box sx={{ padding: "15px" }}>
           <Box>
-            <Typography sx={{ color: "#666", fontSize: "16px", fontWeight: "600" }}>Tên máy in</Typography>
+            <Typography
+              sx={{ color: "#666", fontSize: "16px", fontWeight: "600" }}
+            >
+              Tên máy in
+            </Typography>
             <TextField
               sx={{ marginBottom: "15px" }}
               id="outlined-helperText"
@@ -95,24 +109,7 @@ const AddPrinterDialog = ({ isOpen, handleClose, handleAddPrinter }) => {
               onChange={(e) => handleInputChange("name", e.target.value)}
               InputProps={{
                 sx: {
-                  fontSize: '14px',
-                },
-              }}
-            />
-          </Box>
-          <Box>
-            <Typography sx={{ color: "#666", fontSize: "16px", fontWeight: "600" }}>Mẫu máy in</Typography>
-            <TextField
-              sx={{ marginBottom: "15px" }}
-              id="outlined-helperText"
-              fullWidth
-              placeholder="Type here"
-              size="small"
-              value={newPrinter.brand}
-              onChange={(e) => handleInputChange("brand", e.target.value)}
-              InputProps={{
-                sx: {
-                  fontSize: '14px',
+                  fontSize: "14px",
                 },
               }}
             />
@@ -120,7 +117,11 @@ const AddPrinterDialog = ({ isOpen, handleClose, handleAddPrinter }) => {
           <Grid container spacing={4}>
             <Grid item xs={6}>
               <Box>
-                <Typography sx={{ color: "#666", fontSize: "16px", fontWeight: "600" }}>Cơ sở</Typography>
+                <Typography
+                  sx={{ color: "#666", fontSize: "16px", fontWeight: "600" }}
+                >
+                  Cơ sở
+                </Typography>
                 <FormControl fullWidth>
                   <Select
                     id="demo-simple-select"
@@ -128,18 +129,24 @@ const AddPrinterDialog = ({ isOpen, handleClose, handleAddPrinter }) => {
                     onChange={handleChange}
                     size="small"
                     sx={{
-                      fontSize: '14px',
+                      fontSize: "14px",
                     }}
                   >
-                    <MenuItem value={1}>Cơ sở Lý Thường Kiệt</MenuItem>
-                    <MenuItem value={2}>Cơ sở Dĩ An</MenuItem>
+                    <MenuItem value={"Lý Thường Kiệt"}>
+                      Cơ sở Lý Thường Kiệt
+                    </MenuItem>
+                    <MenuItem value={"Dĩ An"}>Cơ sở Dĩ An</MenuItem>
                   </Select>
                 </FormControl>
               </Box>
             </Grid>
             <Grid item xs={3}>
               <Box>
-                <Typography sx={{ color: "#666", fontSize: "16px", fontWeight: "600" }}>Tòa</Typography>
+                <Typography
+                  sx={{ color: "#666", fontSize: "16px", fontWeight: "600" }}
+                >
+                  Tòa
+                </Typography>
                 <TextField
                   sx={{ marginBottom: "15px" }}
                   id="outlined-helperText"
@@ -147,10 +154,12 @@ const AddPrinterDialog = ({ isOpen, handleClose, handleAddPrinter }) => {
                   placeholder="Type here"
                   size="small"
                   value={newPrinter.building}
-                  onChange={(e) => handleInputChange("building", e.target.value)}
+                  onChange={(e) =>
+                    handleInputChange("building", e.target.value)
+                  }
                   InputProps={{
                     sx: {
-                      fontSize: '14px',
+                      fontSize: "14px",
                     },
                   }}
                 />
@@ -158,7 +167,11 @@ const AddPrinterDialog = ({ isOpen, handleClose, handleAddPrinter }) => {
             </Grid>
             <Grid item xs={3}>
               <Box>
-                <Typography sx={{ color: "#666", fontSize: "16px", fontWeight: "600" }}>Phòng</Typography>
+                <Typography
+                  sx={{ color: "#666", fontSize: "16px", fontWeight: "600" }}
+                >
+                  Phòng
+                </Typography>
                 <TextField
                   sx={{ marginBottom: "15px" }}
                   id="outlined-helperText"
@@ -169,7 +182,7 @@ const AddPrinterDialog = ({ isOpen, handleClose, handleAddPrinter }) => {
                   onChange={(e) => handleInputChange("room", e.target.value)}
                   InputProps={{
                     sx: {
-                      fontSize: '14px',
+                      fontSize: "14px",
                     },
                   }}
                 />

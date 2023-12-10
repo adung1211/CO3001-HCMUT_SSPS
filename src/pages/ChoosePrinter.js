@@ -39,14 +39,22 @@ export default function ChoosePrinter() {
   const day = currentDate.getDate();
   const month = currentDate.getMonth() + 1;
   const year = currentDate.getFullYear();
+  const hours =
+    currentDate.getHours() < 10
+      ? "0" + currentDate.getHours()
+      : currentDate.getHours();
+  const minutes =
+    currentDate.getMinutes() < 10
+      ? "0" + currentDate.getMinutes()
+      : currentDate.getMinutes();
   const handleChoose = (val) => {
     setChoosen(val.id);
     updatePrintingInfo({
       printerId: val.id,
       printerName: val.name,
-      printerLocation: `${val.fac} ${val.build} - ${val.room}`,
+      printerLocation: `${val.location} ${val.building} - ${val.room}`,
       printID: String(Math.floor(100000 + Math.random() * 900000)),
-      printDate: `${day}/${month}/${year}`,
+      printDate: `${day}/${month}/${year} ${hours}:${minutes}`,
     });
   };
   const handleChangeFac = (event) => {
@@ -109,7 +117,7 @@ export default function ChoosePrinter() {
   const ShowPrinter = (val) => {
     return (
       <Grid item xs={4}>
-        {val.state === "Sẵn sàng" && (
+        {val.status === "Sẵn sàng" && (
           <CardActionArea onClick={() => handleChoose(val)}>
             <Card
               sx={
@@ -126,7 +134,7 @@ export default function ChoosePrinter() {
               <CardMedia
                 component="img"
                 sx={{ width: 151 }}
-                image="https://cdn.iconscout.com/icon/free/png-256/free-photocopier-machine-1125087.png"
+                image="https://i.imgur.com/94qk77J.jpg"
                 alt="May in"
               />
               <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -136,8 +144,8 @@ export default function ChoosePrinter() {
                   </Typography>
                   <Typography>
                     ID: {val.id} <br />
-                    Cơ sở: {val.fac} <br />
-                    Toà: {val.build} <br />
+                    Cơ sở: {val.location} <br />
+                    Toà: {val.building} <br />
                     Phòng: {val.room} <br />
                   </Typography>
                   <Typography
@@ -154,7 +162,7 @@ export default function ChoosePrinter() {
             </Card>
           </CardActionArea>
         )}
-        {val.state === "Không sẵn sàng" && (
+        {val.status === "Không sẵn sàng" && (
           <Card sx={{ display: "flex", backgroundColor: "#E9E8E8" }}>
             <CardMedia
               component="img"
@@ -169,8 +177,8 @@ export default function ChoosePrinter() {
                 </Typography>
                 <Typography>
                   ID: {val.id} <br />
-                  Cơ sở: {val.fac} <br />
-                  Toà: {val.build} <br />
+                  Cơ sở: {val.location} <br />
+                  Toà: {val.building} <br />
                   Phòng: {val.room} <br />
                 </Typography>
                 <Typography
