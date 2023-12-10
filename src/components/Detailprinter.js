@@ -93,12 +93,15 @@ const Detailprinter = ({ printer, isOpen, handleClose }) => {
               Cập nhật
             </Button>
           <Box>
-            <Button onClick={() => setDisableDialogOpen(true)} color="error" variant="contained" sx={sharedButtonStyle}>
-              Disable
-            </Button>
-            <Button onClick={() => setEnableDialogOpen(true)} color="success" variant="contained" sx={sharedButtonStyle}>
-              Enable
-            </Button>
+            {printer.status !== null && printer.status !== undefined &&  printer.status === 'Online' ? (
+              <Button onClick={() => setDisableDialogOpen(true)} color="error" variant="contained" sx={sharedButtonStyle}>
+                Disable
+              </Button>
+            ) : (
+              <Button onClick={() => setEnableDialogOpen(true)} color="success" variant="contained" sx={sharedButtonStyle}>
+                Enable
+              </Button>
+            )}
           </Box>
       </DialogActions>
         <UpdateDialog
@@ -112,13 +115,25 @@ const Detailprinter = ({ printer, isOpen, handleClose }) => {
 
         {/* Dialog vô hiệu hóa */}
         <DisableDialog 
-          isOpen={disableDialogOpen} handleClose={() => setDisableDialogOpen(false)} />
+          printer={printer}
+          isOpen={disableDialogOpen}
+          handleClose={() => {
+            setDisableDialogOpen(false);
+            handleCloseDetailprinter(); // Gọi hàm đóng từ Detailprinter khi đóng UpdateDialog
+          }}
+          />
+          
 
         {/* Dialog kích hoạt */}
         <EnableDialog
+         printer={printer}
          isOpen={enableDialogOpen} 
-         handleClose={() => setEnableDialogOpen(false)}
          handleEnable={handleEnableConfirm}
+         handleClose={() => {
+          setEnableDialogOpen(false);
+          handleCloseDetailprinter(); // Gọi hàm đóng từ Detailprinter khi đóng UpdateDialog
+        }}
+
           />
     </Dialog>
   );

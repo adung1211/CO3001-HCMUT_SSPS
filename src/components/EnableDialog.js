@@ -1,14 +1,19 @@
 import React from "react";
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Typography } from "@mui/material";
+import { usePrinterListContext} from '../components/PrinterListContext';
 
-const EnableDialog = ({ isOpen, handleClose, handleEnable }) => {
+const EnableDialog = ({printer, isOpen, handleClose, handleEnable }) => {
+  const {printers, editPrinter} = usePrinterListContext();
   const handleEnableConfirm = (confirmed) => {
     // Xử lý khi xác nhận Enable hoặc hủy bỏ
     handleClose();
 
     if (confirmed) {
+      const updatedPrinter = { ...printer, status: 'Online' };
+      editPrinter(updatedPrinter);
+      handleClose();
       // Gọi hàm xác nhận enable từ component cha
-      handleEnable();
+      // handleEnable();
     }
   };
 
