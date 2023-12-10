@@ -27,12 +27,12 @@ const sharedButtonStyle = {
 
 export default function Printers() {
 
-  const { printers, addPrinter, removePrinter, editPrinter } = usePrinterListContext();
+  const { printers, addPrinter, resetLocalStorage } = usePrinterListContext();
   const [selectedPrinter, setSelectedPrinter] = useState(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isDialogOpenAddbuttom, setIsDialogOpenAddbuttom] = useState(false);
 
-
+  resetLocalStorage();
 
   const handleSelectPrinter = (printer) => {
     setSelectedPrinter(printer);
@@ -70,14 +70,11 @@ export default function Printers() {
               Add
             </Button>
 
-            <Button startIcon={<Remove />} variant="contained" color="error" sx={sharedButtonStyle} >
-              Remove
-            </Button>
           </Box>
 
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <Search />
-            <TextField startIcon={<Search />} id="outlined-basic" label="Search" variant="outlined" size="small" sx={{ marginLeft: 'auto' }} />
+            <TextField  id="outlined-basic" label="Search" variant="outlined" size="small" sx={{ marginLeft: 'auto' }} />
           </Box>
 
         </Box>
