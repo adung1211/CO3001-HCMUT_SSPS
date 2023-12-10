@@ -95,7 +95,7 @@
               paddingTop: "2px",
               paddingBottom: "2px",
               marginTop: "10px",
-              fontSize: "12px"
+              fontSize: "12px",
             }}
             disabled={printer.status =='Online'}
           >
