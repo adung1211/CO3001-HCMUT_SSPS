@@ -134,7 +134,7 @@ export default function ChoosePrinter() {
               <CardMedia
                 component="img"
                 sx={{ width: 151 }}
-                image="https://i.imgur.com/94qk77J.jpg"
+                image="https://cdn.iconscout.com/icon/free/png-256/free-photocopier-machine-1125087.png"
                 alt="May in"
               />
               <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -167,7 +167,7 @@ export default function ChoosePrinter() {
             <CardMedia
               component="img"
               sx={{ width: 151 }}
-              image="https://i.imgur.com/94qk77J.jpg"
+              image="https://cdn.iconscout.com/icon/free/png-256/free-photocopier-machine-1125087.png"
               alt="May in"
             />
             <Box sx={{ display: "flex", flexDirection: "column" }}>

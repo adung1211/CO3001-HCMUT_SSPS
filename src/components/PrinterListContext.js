@@ -95,6 +95,7 @@ const PrinterListProvider = ({ children }) => {
   });
 
   useEffect(() => {
+    sessionStorage.clear();
     localStorage.setItem("printers", JSON.stringify(printers));
   }, [printers]);
   const addPrinter = (newPrinter) => {

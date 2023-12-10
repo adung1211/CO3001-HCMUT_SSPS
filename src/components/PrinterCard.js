@@ -65,7 +65,7 @@ const PrinterCard = ({ printer, onSelect, onRemove }) => {
               <Box>
                 <img
                   alt="linh tinh"
-                  src="https://i.imgur.com/94qk77J.jpg"
+                  src="https://cdn.iconscout.com/icon/free/png-256/free-photocopier-machine-1125087.png"
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
               </Box>
