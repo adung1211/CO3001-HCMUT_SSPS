@@ -33,10 +33,11 @@ const PrinterListProvider = ({ children }) => {
     });
   };
 
-  const removePrinter = (printerId) => {
-    setPrinters((prevPrinters) => prevPrinters.filter((printer) => printer.id !== printerId));
+  const removePrinter = (printerToRemove) => {
+    setPrinters((prevPrinters) => prevPrinters.filter((printer) => printer.id !== printerToRemove.id));
+    updateLocalStorage();
   };
-
+  
   const editPrinter = (updatedPrinter) => {
     setPrinters((prevPrinters) =>
       prevPrinters.map((printer) =>

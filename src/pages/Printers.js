@@ -74,7 +74,7 @@ export default function Printers() {
 
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <Search />
-            <TextField startIcon={<Search />} id="outlined-basic" label="Search" variant="outlined" size="small" sx={{ marginLeft: 'auto' }} />
+            <TextField  id="outlined-basic" label="Search" variant="outlined" size="small" sx={{ marginLeft: 'auto' }} />
           </Box>
 
         </Box>
