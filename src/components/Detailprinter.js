@@ -58,7 +58,7 @@ const Detailprinter = ({ printer, isOpen, handleClose }) => {
       <DialogTitle sx={{ textAlign: "center" }}>THÔNG TIN MÁY IN</DialogTitle>
       <DialogContent>
         {printer && (
-          <>
+          <Box>
             <Grid container xs={{ padding: "20px" }}>
               <Grid item md={6}>
                 <Box
@@ -84,6 +84,9 @@ const Detailprinter = ({ printer, isOpen, handleClose }) => {
                 <Typography variant="h6">{printer.name}</Typography>
                 <Typography color="text.secondary">ID: {printer.id}</Typography>
                 <Typography color="text.secondary">
+                  Mẫu máy in: {printer.brand}
+                </Typography>
+                <Typography color="text.secondary">
                   Cơ sở: {printer.location}
                 </Typography>
                 <Typography color="text.secondary">
@@ -99,47 +102,51 @@ const Detailprinter = ({ printer, isOpen, handleClose }) => {
                 )}
               </Grid>
             </Grid>
-          </>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                padding: "10px",
+              }}
+            >
+              <Button
+                onClick={() => setUpdateDialogOpen(true)}
+                color="primary"
+                variant="contained"
+                sx={sharedButtonStyle}
+              >
+                Cập nhật
+              </Button>
+              <Box>
+                <Button
+                  onClick={() => {
+                    console.log("Printer:", printer);
+                    console.log("Enable clicked");
+                    setDisableDialogOpen(true);
+                  }}
+                  color="error"
+                  variant="contained"
+                  sx={sharedButtonStyle}
+                  disabled={printer.status === "Không sẵn sàng"}
+                >
+                  Disable
+                </Button>
+                <Button
+                  onClick={() => {
+                    setEnableDialogOpen(true);
+                  }}
+                  color="success"
+                  variant="contained"
+                  sx={sharedButtonStyle}
+                  disabled={printer.status === "Sẵn sàng"}
+                >
+                  Enable
+                </Button>
+              </Box>
+            </Box>
+          </Box>
         )}
       </DialogContent>
-      <DialogActions
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          padding: "10px",
-        }}
-      >
-        {printer && (
-          <>
-            <Button
-              onClick={() => setUpdateDialogOpen(true)}
-              color="primary"
-              variant="contained"
-              sx={sharedButtonStyle}
-            >
-              Cập nhật
-            </Button>
-            <Box>
-              <Button
-                onClick={() => setDisableDialogOpen(true)}
-                color="error"
-                variant="contained"
-                sx={sharedButtonStyle}
-              >
-                Disable
-              </Button>
-              <Button
-                onClick={() => setEnableDialogOpen(true)}
-                color="success"
-                variant="contained"
-                sx={sharedButtonStyle}
-              >
-                Enable
-              </Button>
-            </Box>
-          </>
-        )}
-      </DialogActions>
       <UpdateDialog
         printer={printer}
         isOpen={updateDialogOpen}
