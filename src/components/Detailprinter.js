@@ -89,17 +89,22 @@ const Detailprinter = ({ printer, isOpen, handleClose }) => {
         )}
       </DialogContent>
       <DialogActions sx={{ display: 'flex', justifyContent: 'space-between', padding: "10px" }}>
+        {printer && (
+          <>
             <Button onClick={() => setUpdateDialogOpen(true)} color="primary" variant="contained" sx={sharedButtonStyle}>
-              Cập nhật
-            </Button>
+            Cập nhật
+          </Button>
           <Box>
-           <Button onClick={() => setDisableDialogOpen(true)} color="error" variant="contained" sx={sharedButtonStyle} disabled={printer.status=='Offline'} >
+           <Button onClick={() => setDisableDialogOpen(true)} color="error" variant="contained" sx={sharedButtonStyle}  >
               Disable
             </Button>
-            <Button onClick={() => setEnableDialogOpen(true)} color="success" variant="contained" sx={sharedButtonStyle} disabled={printer.status=='Online'}>
+            <Button onClick={() => setEnableDialogOpen(true)} color="success" variant="contained" sx={sharedButtonStyle} >
               Enable
             </Button>
           </Box>
+          </>
+        )}  
+          
       </DialogActions>
         <UpdateDialog
           printer={printer}

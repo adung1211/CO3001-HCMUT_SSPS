@@ -27,12 +27,12 @@ const sharedButtonStyle = {
 
 export default function Printers() {
 
-  const { printers, addPrinter, removePrinter, editPrinter } = usePrinterListContext();
+  const { printers, addPrinter, resetLocalStorage } = usePrinterListContext();
   const [selectedPrinter, setSelectedPrinter] = useState(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isDialogOpenAddbuttom, setIsDialogOpenAddbuttom] = useState(false);
 
-
+  resetLocalStorage();
 
   const handleSelectPrinter = (printer) => {
     setSelectedPrinter(printer);
