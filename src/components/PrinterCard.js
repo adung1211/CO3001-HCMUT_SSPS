@@ -97,7 +97,7 @@
               marginTop: "10px",
               fontSize: "12px",
             }}
-            disabled={printer.status =='Online'}
+            disabled={printer.status ==='Online'}
           >
             Remove
           </Button>
