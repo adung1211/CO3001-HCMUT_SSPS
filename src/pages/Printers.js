@@ -32,7 +32,6 @@ export default function Printers() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isDialogOpenAddbuttom, setIsDialogOpenAddbuttom] = useState(false);
 
-  resetLocalStorage();
 
   const handleSelectPrinter = (printer) => {
     setSelectedPrinter(printer);
