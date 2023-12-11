@@ -61,7 +61,7 @@ export default function ChoosePrinter() {
     const selectedFac = event.target.value;
 
     const filteredPrinters = printers.filter(
-      (printer) => printer.fac === selectedFac
+      (printer) => printer.location === selectedFac
     );
     setFilterFac(selectedFac);
     setPrinterList(filteredPrinters);
@@ -77,7 +77,7 @@ export default function ChoosePrinter() {
 
     // Filter the PrinterList based on the selected building
     const filteredPrinters = PrinterListFac.filter(
-      (printer) => printer.build === selectedBuild
+      (printer) => printer.building === selectedBuild
     );
 
     // Update the state with the filtered building and clear the filterBuild
@@ -210,7 +210,7 @@ export default function ChoosePrinter() {
           <InputLabel>Cơ sở</InputLabel>
           <Select value={filterFac} label="Cơ sở" onChange={handleChangeFac}>
             <MenuItem value="">None</MenuItem>
-            <MenuItem value={"LTK"}>LTK</MenuItem>
+            <MenuItem value={"Lý Thường Kiệt"}>LTK</MenuItem>
             <MenuItem value={"Dĩ An"}>Dĩ An</MenuItem>
           </Select>
         </FormControl>
@@ -232,7 +232,7 @@ export default function ChoosePrinter() {
             </Select>
           </FormControl>
         )}
-        {filterFac === "LTK" && (
+        {filterFac === "Lý Thường Kiệt" && (
           <FormControl sx={{ m: 1, minWidth: 120 }}>
             <InputLabel>Toà</InputLabel>
             <Select

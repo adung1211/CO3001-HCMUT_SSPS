@@ -4,6 +4,7 @@ class YourComponent extends React.Component {
   // Function to clear sessionStorage
   clearSessionStorage = () => {
     sessionStorage.clear();
+    localStorage.clear();
   };
 
   render() {

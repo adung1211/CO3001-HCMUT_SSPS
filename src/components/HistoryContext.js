@@ -8,7 +8,7 @@ const HistoryProvider = ({ children }) => {
   const storedHistory = JSON.parse(sessionStorage.getItem("History"));
 
   const [idCount, setIdCount] = useState(
-    storedIdCount ? parseInt(storedIdCount) : 3
+    storedIdCount ? parseInt(storedIdCount) : 4
   );
   const [History, setHistory] = useState(
     storedHistory || [
@@ -39,9 +39,19 @@ const HistoryProvider = ({ children }) => {
         printID: "696969",
         printDate: "14/2/2023 07:00",
         printPages: "2",
-        location: "LTK A2 - 201",
+        location: "Lý Thường Kiệt A2 - 201",
         paperSize: "A2",
         printerID: "6",
+      },
+      {
+        id: 4,
+        fileName: "MauDonXinThoiHoc.word",
+        printID: "231231",
+        printDate: "11/12/2023 08:00",
+        printPages: "10",
+        location: "Dĩ An H6 - 608",
+        paperSize: "A4",
+        printerID: "10",
       },
     ]
   );
